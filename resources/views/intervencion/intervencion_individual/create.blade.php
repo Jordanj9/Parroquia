@@ -351,7 +351,7 @@
         function consultar() {
             var doc = $("#documento").val();
             if (doc.length <= 0) {
-                notify('Atención', 'Debe ingresar la identificación del estudiante para continuar.', 'warning')
+                notify('Atención', 'Debe ingresar la identificación del estudiante para continuar.', 'warning');
             } else {
                 $.ajax({
                     type: 'GET',

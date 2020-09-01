@@ -3,8 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use phpDocumentor\Reflection\DocBlock\Tags\Reference\Url;
 
-class ocupacion extends Model
+class Comunidadlider extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,7 +13,7 @@ class ocupacion extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'codigo', 'nombre', 'descripcion', 'created_at', 'updated_at'
+        'id', 'tipo', 'comunidad_id', 'lider_id', 'created_at', 'updated_at'
     ];
 
     /**
@@ -24,7 +25,11 @@ class ocupacion extends Model
         //
     ];
 
-    public function miembros() {
-        return $this->hasMany(Miembro::class);
+    public function comunidad() {
+        return $this->belongsTo(Comunidad::class);
+    }
+
+    public function lider() {
+        return $this->belongsTo(Lider::class);
     }
 }

@@ -23,4 +23,8 @@ class Estadocivil extends Model
     protected $hidden = [
         //
     ];
+
+    public function miembros() {
+        return $this->hasMany(Miembro::class);
+    }
 }

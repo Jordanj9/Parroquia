@@ -3,8 +3,8 @@
     <ol class="breadcrumb breadcrumb-bg-blue-grey" style="margin-bottom: 30px;">
         <li><a href="{{route('inicio')}}">Inicio</a></li>
         <li><a href="{{route('admin.pastoral')}}">Pastoral</a></li>
-        <li class="active"><a href="{{route('pastorales.index')}}">Pastorales</a></li>
-        <li class="active"><a>Editar</a></li>
+        <li class="active"><a href="{{route('subpastoral.index')}}">Subpastorales</a></li>
+        <li class="active"><a>Crear</a></li>
     </ol>
 @endsection
 @section('content')
@@ -13,7 +13,7 @@
             <div class="card">
                 <div class="header">
                     <h2>
-                        PASTORAL - PASTORALES
+                        PASTORAL - SUBPASTORALES
                     </h2>
                     <ul class="header-dropdown m-r--5">
                         <li class="dropdown">
@@ -32,26 +32,20 @@
                         @component('layouts.errors')
                         @endcomponent
                     </div>
-                    <h1 class="card-inside-title">EDITAR DATOS DE LA PASTORAL: {{$pastoral->nombre}}</h1>
+                    <h1 class="card-inside-title">DATOS DE LA PASTORAL</h1>
                     <div class="row clearfix">
                         <div class="col-md-12">
-                            <form class="form-horizontal" method="POST"
-                                  action="{{route('pastorales.update',$pastoral->id)}}">
+                            <form class="form-horizontal" method="POST" action="{{route('subpastoral.store')}}">
                                 @csrf
-                                <input name="_method" type="hidden" value="PUT"/>
                                 <div class="col-md-12">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <label>Parroquia</label>
-                                                <br/><select class="form-control show-tick" name="parroquia_id"
-                                                             required>
-                                                    @foreach($parroquias as $key=>$value)
-                                                        @if($pastoral->parroquia_id == $key)
-                                                            <option value="{{$key}}" selected>{{$value}}</option>
-                                                        @else
-                                                            <option value="{{$key}}">{{$value}}</option>
-                                                        @endif
+                                                <label>Pastoral</label>
+                                                <br/><select class="form-control show-tick" name="pastoral_id" required>
+                                                    <option value="">--Seleccione una opción--</option>
+                                                    @foreach($pastorales as $key=>$value)
+                                                        <option value="{{$key}}">{{$value}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -62,8 +56,8 @@
                                             <div class="form-line">
                                                 <label>Nombre</label>
                                                 <br/><br/><input type="text" class="form-control"
-                                                            placeholder="Escriba el nombre de la pastoral"
-                                                            name="nombre" value="{{$pastoral->nombre}}" disabled required/>
+                                                            placeholder="Escriba el nombre de la subpastoral"
+                                                            name="nombre" required/>
                                             </div>
                                         </div>
                                     </div>
@@ -72,23 +66,17 @@
                                             <div class="form-line">
                                                 <label>Descripción</label>
                                                 <br/><textarea type="text" class="form-control"
-                                                               placeholder="Descripción de la pastoral (Opcional)"
-                                                               name="descripcion" maxlength="250"
-                                                               rows="2">{{$pastoral->descripcion}}</textarea>
+                                                               placeholder="Descripción de la subpastoral (Opcional)"
+                                                               name="descripcion" maxlength="250" rows="2"></textarea>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="col-md-12">
+                                    <div class="col-md-12 col-xs-12">
                                         <div class="form-group">
-                                            <br/><br/><a href="{{route('pastorales.index')}}"
-                                                         class="btn bg-red waves-effect" style="margin-bottom: 10px">Cancelar</a>
-                                            <button class="btn bg-indigo waves-effect" style="margin-bottom: 10px"
-                                                    type="reset">Limpiar Formulario
+                                            <br/><br/><a href="{{route('subpastoral.index')}}" class="btn bg-red waves-effect" style="margin-bottom: 10px">Cancelar</a>
+                                            <button class="btn bg-indigo waves-effect" style="margin-bottom: 10px" type="reset">Limpiar Formulario
                                             </button>
-                                            <button class="btn bg-green waves-effect" style="margin-bottom: 10px"
-                                                    type="submit">Guardar
-                                            </button>
+                                            <button class="btn bg-green waves-effect" style="margin-bottom: 10px" type="submit">Guardar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -104,11 +92,10 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="defaultModalLabel">SOBRE LAS PASTORALES</h4>
+                        <h4 class="modal-title" id="defaultModalLabel">SOBRE LAS SUBPASTORALES</h4>
                 </div>
                 <div class="modal-body">
-                    <strong>Edite los datos de la pastoral seleccionada,</strong> Gestione la información de las
-                    pastorales pertenecientes a una parroquia.
+                    <strong>Agregue nuevas subpastorales,</strong> Gestione la información de las subpastorales pertenecientes a una pastoral.
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">ACEPTAR</button>

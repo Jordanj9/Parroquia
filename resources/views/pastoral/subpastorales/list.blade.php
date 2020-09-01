@@ -3,7 +3,7 @@
     <ol class="breadcrumb breadcrumb-bg-blue-grey" style="margin-bottom: 30px;">
         <li><a href="{{route('inicio')}}">Inicio</a></li>
         <li><a href="{{route('admin.pastoral')}}">Pastoral</a></li>
-        <li class="active"><a href="{{route('pastorales.index')}}">Pastorales</a></li>
+        <li class="active"><a href="{{route('subpastoral.index')}}">Subpastorales</a></li>
     </ol>
 @endsection
 @section('content')
@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="header">
                     <h2>
-                        PASTORAL - PASTORALES<small>Haga clic en el botón de 3 puntos de la derecha de
+                        PASTORAL - SUBPASTORALES<small>Haga clic en el botón de 3 puntos de la derecha de
                             este título para agregar un nuevo registro.</small>
                     </h2>
                     <ul class="header-dropdown m-r--5">
@@ -22,7 +22,7 @@
                                 <i class="material-icons">more_vert</i>
                             </a>
                             <ul class="dropdown-menu pull-right">
-                                <li><a href="{{ route('pastorales.create') }}">Agregar Nueva Pastoral</a></li>
+                                <li><a href="{{ route('subpastoral.create') }}">Agregar Nueva Subpastoral</a></li>
                                 <li><a data-toggle="modal" data-target="#mdModal">Ayuda</a></li>
                             </ul>
                         </li>
@@ -37,26 +37,29 @@
                             <tr>
                                 <th>NOMBRE</th>
                                 <th>DESCRIPCIÓN</th>
-                                <th>PARROQUIA</th>
+                                <th>PASTORAL</th>
                                 <th>ACCIONES</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($pastorales as $pastoral)
-                                <tr>
-                                    <td>{{$pastoral->nombre}}</td>
-                                    <td>{{$pastoral->descripcion}}</td>
-                                    <td>{{$pastoral->parroquia->nombre}}</td>
-                                    <td style="text-align: center;">
-                                        <a href="{{ route('pastorales.edit',$pastoral->id)}}"
-                                           class="btn bg-indigo waves-effect btn-xs" data-toggle="tooltip"
-                                           data-placement="top" title="Editar Pastoral"><i class="material-icons">mode_edit</i></a>
-                                        @if($pastoral->id > 16)
-                                        <a href="#" onclick="eliminar(event,{{$pastoral->id}})" class="btn bg-red waves-effect btn-xs" data-toggle="tooltip"
-                                           data-placement="top" title="Eliminar Pastoral"><i class="material-icons">delete</i></a>
-                                        @endif
-                                    </td>
-                                </tr>
+                            @foreach($subs as $sub)
+                                @foreach($sub as $i)
+                                    <tr>
+                                        <td>{{$i->nombre}}</td>
+                                        <td>{{$i->descripcion}}</td>
+                                        <td>{{$i->pastoral->nombre}}</td>
+                                        <td style="text-align: center;">
+                                            <a href="{{ route('subpastoral.edit',$i->id)}}"
+                                               class="btn bg-indigo waves-effect btn-xs" data-toggle="tooltip"
+                                               data-placement="top" title="Editar Subpastoral"><i
+                                                    class="material-icons">mode_edit</i></a>
+                                            <a href="#" onclick="eliminar(event,{{$i->id}})"
+                                               class="btn bg-red waves-effect btn-xs" data-toggle="tooltip"
+                                               data-placement="top" title="Eliminar Subpastoral"><i
+                                                    class="material-icons">delete</i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             @endforeach
                             </tbody>
                         </table>
@@ -70,10 +73,11 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="defaultModalLabel">SOBRE LAS PASTORALES</h4>
+                    <h4 class="modal-title" id="defaultModalLabel">SOBRE LAS SUBPASTORALES</h4>
                 </div>
                 <div class="modal-body">
-                    <strong>Detalles: </strong>Gestione la información de las pastorales pertenecientes a una parroquia.
+                    <strong>Detalles: </strong>Gestione la información de las subpastorales pertenecientes a una
+                    pastoral.
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">ACEPTAR</button>
@@ -90,7 +94,7 @@
             $('#tabla').DataTable();
         });
 
-        function eliminar(event,id){
+        function eliminar(event, id) {
             event.preventDefault();
             Swal.fire({
                 title: 'Estas seguro(a)?',
@@ -100,13 +104,13 @@
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Si, eliminarlo!',
-                cancelButtonText:'cancelar'
+                cancelButtonText: 'cancelar'
             }).then((result) => {
                 if (result.value) {
-                    let url = 'pastorales/'+id;
+                    let url = 'subpastoral/' + id;
                     axios.delete(url).then(result => {
                         let data = result.data;
-                        if(data.status == 'ok'){
+                        if (data.status == 'ok') {
                             Swal.fire(
                                 'Eliminado!',
                                 data.message,
@@ -114,7 +118,7 @@
                             ).then(result => {
                                 location.reload();
                             });
-                        }else{
+                        } else {
                             Swal.fire(
                                 'Error!',
                                 data.message,

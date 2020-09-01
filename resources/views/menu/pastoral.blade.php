@@ -30,8 +30,17 @@
                                     <span class="ink animate"></span></div>
                             </a>
                         @endif
+                            @if(session()->exists('PAG_PASTORAL-SUBPASTORALES'))
+                                <a href="{{route('subpastoral.index')}}"
+                                   class="btn btn-primary btn-lg bg-teal waves-effect">
+                                    <div>
+                                        <span><i class="material-icons">view_module</i></span>
+                                        <span>SUBPASTORALES</span>
+                                        <span class="ink animate"></span></div>
+                                </a>
+                            @endif
                         @if(session()->exists('PAG_PASTORAL-COMUNIDAD'))
-                            <a href="{{route('periodosacademicos.index')}}"
+                            <a href="{{route('comunidad.index')}}"
                                class="btn btn-primary btn-lg bg-teal waves-effect">
                                 <div>
                                     <span><i class="material-icons">view_module</i></span>
@@ -40,7 +49,7 @@
                             </a>
                         @endif
                         @if(session()->exists('PAG_PASTORAL-MIEMBROS'))
-                            <a href="{{route('reportes.niveles')}}" class="btn btn-primary btn-lg bg-teal waves-effect">
+                            <a href="{{route('miembro.index')}}" class="btn btn-primary btn-lg bg-teal waves-effect">
                                 <div>
                                     <span><i class="material-icons">view_module</i></span>
                                     <span>MIEMBROS</span>

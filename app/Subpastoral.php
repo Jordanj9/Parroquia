@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ocupacion extends Model
+class Subpastoral extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,7 +12,7 @@ class ocupacion extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'codigo', 'nombre', 'descripcion', 'created_at', 'updated_at'
+        'id', 'nombre', 'descripcion', 'pastoral_id', 'created_at', 'updated_at'
     ];
 
     /**
@@ -24,7 +24,11 @@ class ocupacion extends Model
         //
     ];
 
-    public function miembros() {
-        return $this->hasMany(Miembro::class);
+    public function pastoral() {
+        return $this->belongsTo(Pastoral::class);
+    }
+
+    public function comunidads() {
+        return $this->hasMany(Comunidad::class);
     }
 }

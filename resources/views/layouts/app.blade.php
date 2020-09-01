@@ -15,11 +15,11 @@
     <link href="{{asset('css/plugins/node-waves/waves.css')}}" rel="stylesheet" />
     <link href="{{asset('css/plugins/animate-css/animate.css')}}" rel="stylesheet" />
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
-</head                        >
+</head>
 <body class="login-page">
 <div class="login-box">
-    <div class="logo">
-        <img src="{{asset('img/logo.png')}}" alt="logo" width="350">
+    <div class="logo text-center">
+        <img src="{{asset('img/Imagen1.png')}}" alt="logo" width="200">
     </div>
 </div>
 @yield('content')

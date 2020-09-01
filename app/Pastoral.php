@@ -28,6 +28,10 @@ class Pastoral extends Model
         return $this->belongsTo(Parroquia::class);
     }
 
+    public function subpastorals() {
+        return $this->hasMany(Subpastoral::class);
+    }
+
     public function comunidads() {
         return $this->hasMany(Comunidad::class);
     }

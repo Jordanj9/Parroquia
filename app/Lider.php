@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ocupacion extends Model
+class Lider extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,7 +12,7 @@ class ocupacion extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'codigo', 'nombre', 'descripcion', 'created_at', 'updated_at'
+        'id', 'identificacion', 'nombre', 'created_at', 'updated_at'
     ];
 
     /**
@@ -24,7 +24,7 @@ class ocupacion extends Model
         //
     ];
 
-    public function miembros() {
-        return $this->hasMany(Miembro::class);
+    public function comunidadliders() {
+        return $this->hasMany(Comunidadlider::class);
     }
 }

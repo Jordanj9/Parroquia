@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="header">
                     <h2>
-                        PASTORAL - PASTORALES<small>Haga clic en el botón de 3 puntos de la derecha de
+                        PASTORAL - COMUNIDADES<small>Haga clic en el botón de 3 puntos de la derecha de
                             este título para agregar un nuevo registro.</small>
                     </h2>
                     <ul class="header-dropdown m-r--5">
@@ -22,7 +22,7 @@
                                 <i class="material-icons">more_vert</i>
                             </a>
                             <ul class="dropdown-menu pull-right">
-                                <li><a href="{{ route('pastorales.create') }}">Agregar Nueva Pastoral</a></li>
+                                <li><a href="{{ route('comunidad.create') }}">Agregar Nueva Comunidad</a></li>
                                 <li><a data-toggle="modal" data-target="#mdModal">Ayuda</a></li>
                             </ul>
                         </li>
@@ -35,26 +35,35 @@
                                width="100%" cellspacing="0">
                             <thead>
                             <tr>
-                                <th>NOMBRE</th>
-                                <th>DESCRIPCIÓN</th>
-                                <th>PARROQUIA</th>
+                                <th>COMUNIDAD</th>
+                                <th>DÍA - HORA</th>
+                                <th>SALA</th>
+                                <th>PASTORAL</th>
+                                <th>SUBPASTORAL</th>
                                 <th>ACCIONES</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($pastorales as $pastoral)
+                            @foreach($comunidades as $comunidad)
                                 <tr>
-                                    <td>{{$pastoral->nombre}}</td>
-                                    <td>{{$pastoral->descripcion}}</td>
-                                    <td>{{$pastoral->parroquia->nombre}}</td>
+                                    <td>{{$comunidad->numero}}</td>
+                                    <td>{{$comunidad->dia." - ".$comunidad->hora}}</td>
+                                    <td>{{$comunidad->sala}}</td>
+                                    <td>{{$comunidad->pastoral->nombre}}</td>
+                                    @if($comunidad->subpastoral_id != null)
+                                    <td>{{$comunidad->subpastoral->nombre}}</td>
+                                    @else
+                                        <td>--</td>
+                                    @endif
                                     <td style="text-align: center;">
-                                        <a href="{{ route('pastorales.edit',$pastoral->id)}}"
+                                        <a href="{{ route('comunidad.edit',$comunidad->id)}}"
                                            class="btn bg-indigo waves-effect btn-xs" data-toggle="tooltip"
-                                           data-placement="top" title="Editar Pastoral"><i class="material-icons">mode_edit</i></a>
-                                        @if($pastoral->id > 16)
-                                        <a href="#" onclick="eliminar(event,{{$pastoral->id}})" class="btn bg-red waves-effect btn-xs" data-toggle="tooltip"
-                                           data-placement="top" title="Eliminar Pastoral"><i class="material-icons">delete</i></a>
-                                        @endif
+                                           data-placement="top" title="Editar Comunidad"><i class="material-icons">mode_edit</i></a>
+                                        <a href="{{ route('comunidad.show',$comunidad->id)}}"
+                                           class="btn bg-green waves-effect btn-xs" data-toggle="tooltip"
+                                           data-placement="top" title="Ver Comunidad"><i class="material-icons">remove_red_eye</i></a>
+                                        <a href="#" onclick="eliminar(event,{{$comunidad->id}})" class="btn bg-red waves-effect btn-xs" data-toggle="tooltip"
+                                           data-placement="top" title="Eliminar Comunidad"><i class="material-icons">delete</i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -70,10 +79,10 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="defaultModalLabel">SOBRE LAS PASTORALES</h4>
+                    <h4 class="modal-title" id="defaultModalLabel">SOBRE LAS COMUNIDADES</h4>
                 </div>
                 <div class="modal-body">
-                    <strong>Detalles: </strong>Gestione la información de las pastorales pertenecientes a una parroquia.
+                    <strong>Detalles: </strong>Gestione la información de las comunidades pertenecientes a una pastoral o subpastoral.
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">ACEPTAR</button>
@@ -103,7 +112,7 @@
                 cancelButtonText:'cancelar'
             }).then((result) => {
                 if (result.value) {
-                    let url = 'pastorales/'+id;
+                    let url = 'comunidad/'+id;
                     axios.delete(url).then(result => {
                         let data = result.data;
                         if(data.status == 'ok'){

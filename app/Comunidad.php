@@ -12,7 +12,7 @@ class Comunidad extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'numero', 'dia', 'hora', 'sala', 'pastoral_id', 'created_at', 'updated_at'
+        'id', 'numero', 'dia', 'hora', 'sala', 'pastoral_id', 'subpastoral_id', 'created_at', 'updated_at'
     ];
 
     /**
@@ -26,5 +26,13 @@ class Comunidad extends Model
 
     public function pastoral() {
         return $this->belongsTo(Pastoral::class);
+    }
+
+    public function subpastoral() {
+        return $this->belongsTo(Subpastoral::class);
+    }
+
+    public function comunidadliders() {
+        return $this->hasMany(Comunidadlider::class);
     }
 }

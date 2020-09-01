@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="{{ asset('select2/dist/css/select2.min.css')}}">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('css/themes/all-themes.css')}}" rel="stylesheet"/>
+    <!-- Bootstrap Tagsinput Css -->
+    <link href="{{asset('css/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css')}}" rel="stylesheet"/>
     <!-- JQuery DataTable Css -->
     <link href="{{asset('css/dataTables.bootstrap.css')}}" rel="stylesheet">
     <link href="{{asset('plugins/pnotify/dist/pnotify.css')}}" rel="stylesheet">
@@ -325,6 +327,8 @@
 <script src="{{asset('js/bootstrap/js/bootstrap.js')}}"></script>
 <script src="{{asset('js/jquery-slimscroll/jquery.slimscroll.js')}}"></script>
 <script src="{{asset('js/node-waves/waves.js')}}"></script>
+<!-- Bootstrap Tags Input Plugin Js -->
+<script src="{{asset('css/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js')}}"></script>
 <!-- Jquery DataTable Plugin Js -->
 <script src="{{asset('js/jquery-datatable/jquery.dataTables.js')}}"></script>
 <script src="{{asset('js/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js')}}"></script>

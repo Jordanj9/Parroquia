@@ -25,7 +25,7 @@
                         @if(session()->exists('PAG_GENERAL-PARROQUIA'))
                             <a href="{{route('parroquia.index')}}" class="btn bg-deep-orange btn-lg waves-effect">
                                 <div>
-                                    <span><i class="material-icons">view_headline</i></span>
+                                    <span><i class="material-icons">location_city</i></span>
                                     <span>PARROQUIA</span>
                                     <span class="ink animate"></span></div>
                             </a>

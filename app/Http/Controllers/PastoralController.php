@@ -14,7 +14,7 @@ class PastoralController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $pastorales = Pastoral::all();
+        $pastorales = Pastoral::all()->sortBy('nombre');
         return view('pastoral.pastorales.list')
             ->with('location', 'pastoral')
             ->with('pastorales', $pastorales);
@@ -26,7 +26,7 @@ class PastoralController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        $parroquias = Parroquia::all()->pluck('nombre', 'id');
+        $parroquias = Parroquia::all()->sortBy('nombre')->pluck('nombre', 'id');
         return view('pastoral.pastorales.create')
             ->with('location', 'pastoral')
             ->with('parroquias', $parroquias);
@@ -110,10 +110,10 @@ class PastoralController extends Controller
      */
     public function destroy($id) {
         $pastoral = Pastoral::find($id);
-        if (count($pastoral->comunidads) > 0) {
+        if (count($pastoral->comunidads) > 0 || count($pastoral->subpastorals) > 0) {
             return response()->json([
                 'status' => 'warning',
-                'message' => "La Pastoral <strong>" . $pastoral->nombre . "</strong> no pudo ser eliminada porque tiene comunidades asociadas."
+                'message' => "La Pastoral <strong>" . $pastoral->nombre . "</strong> no pudo ser eliminada porque tiene comunidades o subpastorales asociadas."
             ]);
         }
         $result = $pastoral->delete();

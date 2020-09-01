@@ -18,7 +18,9 @@ class CreateComunidadsTable extends Migration
             $table->enum('dia', ['LUNES', 'MARTES', 'MIERCOLES', 'JUEVES', 'VIERNES', 'SABADO', 'DOMINGO']);
             $table->string('hora');
             $table->string('sala')->nullable();
-            $table->foreignId('pastoral_id');
+            $table->foreignId('subpastoral_id')->nullable();
+            $table->foreign('subpastoral_id')->references('id')->on('subpastorals')->cascadeOnDelete();
+            $table->foreignId('pastoral_id')->nullable();
             $table->foreign('pastoral_id')->references('id')->on('pastorals')->cascadeOnDelete();
             $table->timestamps();
         });
