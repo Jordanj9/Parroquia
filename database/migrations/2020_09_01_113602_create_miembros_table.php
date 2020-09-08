@@ -32,6 +32,7 @@ class CreateMiembrosTable extends Migration
             $table->string('vivecon')->nullable();
             $table->string('direccion', 100)->nullable();
             $table->string('barrio', 80)->nullable();
+            $table->string('correo',150)->nullable();
             $table->integer('telefono')->nullable();
             $table->bigInteger('celular')->nullable();
             $table->enum('trabaja', ['SI', 'NO'])->default('NO');

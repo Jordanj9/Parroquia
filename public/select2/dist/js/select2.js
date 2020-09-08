@@ -5184,7 +5184,7 @@ S2.define('select2/core',[
         return 'auto';
       }
 
-      return elementWidth + 'px';
+      return elementWidth + '%';
     }
 
     if (method == 'style') {

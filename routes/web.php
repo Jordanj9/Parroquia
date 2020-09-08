@@ -121,10 +121,11 @@ Route::group(['middleware' => 'auth', 'prefix' => 'pastoral'], function () {
     //COMUNIDAD
     Route::resource('comunidad', 'ComunidadController');
     Route::get('comunidad/get/{pastoral_id}/subpastorales', 'ComunidadController@getSubpastorales')->name('comunidad.getSubpastorales');
-    Route::get('comunidad/quitar/lider/{comunidadlider_id}','ComunidadController@quitarLider')->name('comunidad.quitarlider');
-    Route::get('comunidad/guardar/lider/{comunidad_id}/{tipo}/{nombre}/{ident}','ComunidadController@guardarLider')->name('comunidad.guardarLider');
+    Route::get('comunidad/quitar/lider/{comunidadlider_id}', 'ComunidadController@quitarLider')->name('comunidad.quitarlider');
+    Route::get('comunidad/guardar/lider/{comunidad_id}/{tipo}/{nombre}/{ident}', 'ComunidadController@guardarLider')->name('comunidad.guardarLider');
+    Route::get('comunidad/get/{id}/{modelo}/comunidades', 'ComunidadController@getComunidades')->name('comunidad.getComunidades');
     //MIEMBROS
-    Route::resource('miembro','MiembroController');
+    Route::resource('miembro', 'MiembroController');
 });
 //GRUPO DE RUTAS PARA EL MODULO INTERVENCION
 Route::group(['middleware' => 'auth', 'prefix' => 'intervencion'], function () {

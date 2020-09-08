@@ -6,6 +6,7 @@ use App\Comunidad;
 use App\Comunidadlider;
 use App\Lider;
 use App\Pastoral;
+use App\Subpastoral;
 use Illuminate\Http\Request;
 
 class ComunidadController extends Controller
@@ -354,6 +355,32 @@ class ComunidadController extends Controller
             foreach ($pastoral->subpastorals as $item) {
                 $obj['id'] = $item->id;
                 $obj['value'] = $item->nombre;
+                $response[] = $obj;
+            }
+            return json_encode($response);
+        } else {
+            return 'null';
+        }
+    }
+
+    /**
+     * Obtines las comunidades de una pastoral o subpastoral
+     *
+     * @param \App\Pastoral $pastoral
+     * @param \App\Subpastoral $subpastoral
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getComunidades($id, $value) {
+        if ($value == 'PASTORAL') {
+            $modelo = Pastoral::find($id);
+        } else {
+            $modelo = Subpastoral::find($id);
+        }
+        if (count($modelo->comunidads) > 0) {
+            $response = null;
+            foreach ($modelo->comunidads as $item) {
+                $obj['id'] = $item->id;
+                $obj['value'] = "COMUNIDAD: " . $item->numero . " DÍA - HORA: " . $item->dia . " - " . $item->hora;
                 $response[] = $obj;
             }
             return json_encode($response);
