@@ -39,6 +39,7 @@
                     <h1 class="card-inside-title">DATOS DEL MIEMBRO</h1>
                     <small><strong>Todos los campos con <i style="color: red">*</i> son requeridos.</strong></small>
                     <br/><br/>
+
                     <form id="wizard_with_validation" method="POST" action="{{route('miembro.store')}}">
                         @csrf
                         <h3>Información personal</h3>
@@ -63,7 +64,7 @@
                                         <label>Identificación <i style="color: red">*</i></label>
                                         <br/><input type="text" maxlength="20" class="form-control"
                                                     name="identificacion" id="identificacion"
-                                                    placeholder="Numero de documento" required>
+                                                    placeholder="Numero de documento" onblur="getMiembro()" required>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -93,9 +94,6 @@
                                         <input name="sexo" type="radio" id="femenino" class="with-gap"
                                                value="FEMENINO"/>
                                         <label style="min-width: 90px" for="femenino">Femenino</label>
-                                        <input name="sexo" type="radio" id="otro" class="with-gap"
-                                               value="OTRO"/>
-                                        <label style="min-width: 60px" for="otro">Otro</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -125,9 +123,9 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-line">
-                                        <label>Correo</label>
-                                        <input type="email" maxlength="150" class="form-control"
-                                               placeholder="Correo electronico" name="correo" id="correo">
+                                        <label>Telefono</label>
+                                        <input type="number" class="form-control" placeholder="Número fijo"
+                                               name="telefono" id="telefono">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -141,9 +139,9 @@
                             <div class="form-group form-float">
                                 <div class="col-md-4">
                                     <div class="form-line">
-                                        <label>Telefono</label>
-                                        <input type="number" class="form-control" placeholder="Número fijo"
-                                               name="telefono" id="telefono">
+                                        <label>Correo</label>
+                                        <input type="email" maxlength="150" class="form-control"
+                                               placeholder="Correo electronico" name="correo" id="correo">
                                     </div>
                                 </div>
                                 <div class="col-md-2">
@@ -165,7 +163,7 @@
                                 <div class="col-md-12">
                                     <label>Ocupación</label>
                                     <select data-placeholder="Seleccione la ocupacion" class="chosen-select"
-                                            tabindex="-1" name="ocupacion" id="ocupacion">
+                                            tabindex="-1" name="ocupacion_id" id="ocupacion_id">
                                         <option value="">--seleccione una opción--</option>
                                         @foreach($ocupaciones as $key=>$value)
                                             <option value="{{$key}}">{{$value}}</option>
@@ -174,33 +172,8 @@
                                 </div>
                             </div>
                         </fieldset>
-
                         <h3>Información Religiosa</h3>
                         <fieldset>
-                            <div class="form-group form-float">
-                                <div class="col-md-12">
-                                    <label>Realidades donde colabora</label>
-                                    <select class="form-control chosen-select" name="realidades[]"
-                                            placeholder="Seleccione las pastorales donde colabora"
-                                            id="realidades" multiple>
-                                        @foreach($realidades as $key=>$value)
-                                            <option value="{{$key}}">{{$value}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group form-float">
-                                <div class="col-md-12">
-                                    <label>Comunidades a las que a pertenecido</label>
-                                    <select class="form-control chosen-select" name="comunidades[]"
-                                            placeholder="Seleccione las pastorales donde colabora"
-                                            id="comunidades" multiple>
-                                        @foreach($comunidades as $key=>$value)
-                                            <option value="{{$key}}">{{$value}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
                             <div class="form-group form-float">
                                 <div class="col-md-12">
                                     <div class="row clearfix">
@@ -210,7 +183,7 @@
                                             <span class="input-group-addon"><i
                                                     class="material-icons">verified_user</i></span>
                                                 <div class="form-line"><select class="form-control show-tick"
-                                                                               name="situacionesp[]" id="situacionesp">
+                                                                               name="sacramentos[]" id="sacramentos">
                                                         <option value="">--seleccione una opción--</option>
                                                         @foreach($sacramentos as $key=>$value)
                                                             <option value="{{$key}}">{{$value}}</option>
@@ -221,7 +194,8 @@
                                         <div class="col-md-3">
                                             <div class="input-group" style="margin-top: 25px">
                                                 <div class="form-line">
-                                                    <input type="text" class="form-control" name="lugar[]" id="lugar">
+                                                    <input type="text" class="form-control" placeholder="Lugar"
+                                                           name="lugar[]" id="lugar">
                                                 </div>
                                                 <span class="input-group-addon">
                                                 <a
@@ -248,10 +222,114 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group form-float">
+                                <div class="col-md-6">
+                                    <div class="form-line">
+                                        <label>Estado Civil <i style="color: red">*</i></label>
+                                        <select class="form-control show-tick" name="estadocivil_id"
+                                                placeholder="Seleccione su Estado civil"
+                                                id="estadocivil_id" onchange="estadoCivil()" required>
+                                            <option value="">--Seleccione una Opción--</option>
+                                            @foreach($estados as $key=>$value)
+                                                <option value="{{$key}}">{{$value}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" id="div_conyugue" style="display: none">
+                                    <div class="form-line">
+                                        <label>Nombre del Conyugue</label>
+                                        <br/><input type="text" class="form-control" id="nombre_conyugue"
+                                                    placeholder="Nombre del conyugue." name="nombre_conyugue"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group form-float">
+                                <div class="col-md-4 casado" style="display: none">
+                                    <div class="form-line">
+                                        <label>Fecha de Matrimonio</label>
+                                        <br/><input type="date" class="form-control" id="fecha_matrimonio"
+                                                    name="fecha_matrimonio"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 casado" id="div_casadopor" style="display: none">
+                                    <label>Casado por <i style="color: red">*</i></label>
+                                    <div class="demo-radio-button">
+                                        <input name="casadopor" type="radio" id="iglesia" class="with-gap"
+                                               value="IGLESIA"/>
+                                        <label style="min-width: 90px" for="iglesia">Iglesía</label>
+                                        <input name="casadopor" type="radio" id="civil" class="with-gap"
+                                               value="CIVIL"/>
+                                        <label style="min-width: 90px" for="civil">Civil</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" id="div_numhijos" style="display: none">
+                                    <div class="form-line">
+                                        <label>N° de Hijos</label>
+                                        <br/><input type="number" class="form-control" id="nombre_mama"
+                                                    placeholder="Número de hijos." name="numero_hijos"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group form-float">
+                                <div class="col-md-6 casado" style="display: none">
+                                    <div class="form-line">
+                                        <label>Nombre de los padres paternos</label>
+                                        <br/><small class="h2 small"
+                                                    style="font-size: 12px;margin-top: 5px;line-height: 15px;color: #999;">Ingrese
+                                            los nombres separados por - Ej:Juan perez medina-Lucia Matinez.
+                                        </small>
+                                        <br/><input type="text" class="form-control" id="nombre_padres_paternos"
+                                                    placeholder="Siga el formato de Ej." name="nombre_padres_paternos"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 casado" style="display: none">
+                                    <div class="form-line">
+                                        <label>Nombre de los padres maternos</label>
+                                        <br/><small class="h2 small"
+                                                    style="font-size: 12px;margin-top: 5px;line-height: 15px;color: #999;">Ingrese
+                                            los nombres separados por - Ej:Juan perez medina-Lucia Matinez.
+                                        </small>
+                                        <br/><input type="text" class="form-control" id="nombre_padres_maternos"
+                                                    placeholder="Siga el formato de Ej." name="nombre_padres_maternos"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 anulacion" style="display: none">
+                                    <div class="form-line">
+                                        <label>Fecha de Anulación</label>
+                                        <br/><input type="date" class="form-control" id="fecha_anulacion_matrimonio"
+                                                    name="fecha_anulacion_matrimonio"/>
+                                    </div>
+                                </div>
+                            </div>
                         </fieldset>
 
                         <h3>Finish</h3>
                         <fieldset>
+                            <div class="form-group form-float">
+                                <div class="col-md-12">
+                                    <label>Realidades donde colabora</label>
+                                    <select class="form-control chosen-select" name="realidades[]"
+                                            placeholder="Seleccione las pastorales donde colabora"
+                                            id="realidades" multiple>
+                                        @foreach($realidades as $key=>$value)
+                                            <option value="{{$key}}">{{$value}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group form-float">
+                                <div class="col-md-12">
+                                    <label>Comunidades a las que a pertenecido</label>
+                                    <select class="form-control chosen-select" name="comunidadesp[]"
+                                            placeholder="Seleccione las pastorales donde colabora"
+                                            id="comunidades" multiple>
+                                        @foreach($comunidades as $key=>$value)
+                                            <option value="{{$key}}">{{$value}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                             <div class="form-group form-float">
                                 <div class="col-md-4">
                                     <div class="form-line">
@@ -273,11 +351,19 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-8">
                                     <div class="form-line">
                                         <label id="numero_label">Comunidad <i style="color: red">*</i></label>
                                         <select class="form-control" name="comunidad_id" id="comunidad_id" required>
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-line">
+                                        <label id="anio_ingreso">Año de Ingreso a la Comunidad <i
+                                                style="color: red">*</i></label>
+                                        <input type="number" class="form-control" min="2000" max="{{$anio}}"
+                                               name="anio_ingreso" id="anio_ingreso" required>
                                     </div>
                                 </div>
                             </div>
@@ -396,7 +482,7 @@
                                     <label>Entorno Material <i style="color: red">*</i></label>
                                     <div class="demo-radio-button">
                                         <input name="entorno_material" type="radio" id="material" class="with-gap"
-                                               value="MATERIAL"/>
+                                               value="DE MATERIAL"/>
                                         <label style="min-width: 90px" for="material">De Material</label>
                                         <input name="entorno_material" type="radio" id="barro" class="with-gap"
                                                value="BARRO"/>
@@ -454,7 +540,7 @@
                                 </div>
                             </div>
                             <div class="form-group form-float salud" style="display: none">
-                                <div class="col-md-6">
+                                <div class="col-md-5">
                                     <label>Situación Espiritual <i style="color: red">*</i></label>
                                     <select class="form-control chosen-select" name="situaciones[]" id="situaciones"
                                             multiple>
@@ -463,11 +549,18 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-5">
                                     <div class="form-line">
                                         <label>Fecha del Censo <i style="color: red">*</i></label>
-                                        <input type="date" class="form-control" name="fecha_cesnso_salud"
+                                        <input type="date" class="form-control" name="fecha_censo_salud"
                                                id="fecha_censo_salud">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-line">
+                                        <label>Edad <i style="color: red">*</i></label>
+                                        <input type="number" class="form-control" name="edad"
+                                               id="edad">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -508,10 +601,11 @@
     <script src="{{ asset('css/plugins/sweetalert/sweetalert.min.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+            $('.select2').select2();
             $(".chosen-select").chosen();
         });
 
-        var situacionest = [];
+        var sacramentost = [];
         var item;
         var pos = false;
 
@@ -640,6 +734,64 @@
             }
         }
 
+        function getMiembro() {
+            var id = $("#identificacion").val();
+            var tipodoc = $("#tipo_documento").val();
+            if (id.length > 0 && tipodoc.length > 0) {
+                $.ajax({
+                    type: 'GET',
+                    url: '{{url("pastoral/miembro/get/")}}/' + tipodoc + "/" + id + "/consultar",
+
+                }).done(function (msg) {
+                    limpiarDatosPersonales();
+                    limpiar();
+                    $('#comunidades option ').each(function () {
+                        $(this).removeProp('selected');
+                    });
+                    $('#realidades option').each(function () {
+                        $(this).removeProp('selected');
+                    });
+                    if (msg.status == 'ok') {
+                        $('#ocupacion_id').val(msg.response.ocupacion_id).trigger('chosen:updated');
+                        pintarSacramentos(msg.response);
+                        pintarRealidades(msg.response);
+                        pintarComunidades(msg.response);
+                        console.log(msg.response);
+                        $.each(msg.response, function (name, val) {
+                            var $el = $('[name="' + name + '"]'), type = $el.attr('type');
+                            switch (type) {
+                                case 'checkbox':
+                                    msg.response.trabaja == 'SI' ? $('#trabaja').attr('checked', 'true') : $('#trabaja').removeAttr('checked');
+                                    // $el.attr('checked', 'checked');
+                                    break;
+                                case 'radio':
+                                    $el.filter('[value="' + val + '"]').attr('checked', 'checked');
+                                    // msg.response.sexo == 'MASCULINO' ? $('#masculino').attr('checked', 'true') : $('#femenino').attr('checked', 'true');
+                                    break;
+                                default:
+                                    $el.val(val);
+                            }
+                        });
+                    }else {
+                        $('#trabaja').removeAttr('checked');
+                    }
+                });
+            }
+
+        }
+
+        function pintarComunidades(response) {
+            $.each(response.comunidadesp, function (name, val) {
+                $("#comunidades option[value='" + val.comunidad_id + "']").attr('selected', 'true').trigger("chosen:updated");
+            });
+        }
+
+        function pintarRealidades(response) {
+            $.each(response.realidades, function (name, val) {
+                $("#realidades option[value='" + val.pastoral_id + "']").attr('selected', 'true').trigger("chosen:updated");
+            });
+        }
+
         function getComunidades(id, modelo) {
             if (modelo != 'PASTORAL') {
                 var mod = 'SUBPASTORAL';
@@ -671,7 +823,7 @@
                     });
                 } else {
                     notify("Atención", "No hay comunidad para los parametros seleccionados por favor primero agregue la comunidad en " +
-                        "<a href='{{route('comunidad.create')}}'>Crear Comunidad.</a>", "warning");
+                        "<a target='_blank' href='{{route('comunidad.create')}}'>Crear Comunidad.</a>", "warning");
                 }
             });
 
@@ -718,42 +870,135 @@
             $("#antecedentes").val("");
         }
 
+        function limpiarDatosPersonales() {
+            $('#nombres').val('');
+            $('#apellidos').val('');
+            $('#fechanacimiento').val('');
+            $('#direccion').val('');
+            $('#barrio').val('');
+            $('#telefono').val('');
+            $('#celular').val('');
+            $('#correo').val('');
+            $('#empresa').val('');
+            $('#ocupacion_id').val('').trigger('chosen:updated');
+            sacramentost = [];
+            $("#tb2").html("");
+        }
+
         function agregar() {
-            if ($("#lugar").val().length <= 0 || $("#situacionesp").val() == '') {
+            if ($("#lugar").val().length <= 0 || $("#sacramentos").val() == '') {
                 notify('Atención', 'Debe completar los dos campos para continuar.', 'warning');
             } else {
-                item = $("#situacionesp").val();
-                console.log([situacionest, item]);
-                situacionest.forEach(getIndex);
+                item = $("#sacramentos").val();
+                sacramentost.forEach(getIndex);
                 if (pos == true) {
                     notify('Atención', 'El sacramento seleccionado ya fue agregado.', 'warning');
                     pos = false;
                 } else {
-                    situacionest.push({
-                        'situacion_id': $("#situacionesp").val(),
+                    sacramentost.push({
+                        'sacramento_id': $("#sacramentos").val(),
                         'lugar': $("#lugar").val()
                     });
                     var html = "";
-                    var text = $("#situacionesp").find('option:selected').text();
+                    var text = $("#sacramentos").find('option:selected').text();
                     html = html + "<tr><td>" + text + "</td>";
                     html = html + "<td>" + $("#lugar").val() + "</td></tr>";
                     html = html + $("#tb2").html();
                     $("#tb2").html(html);
-                    $("#situacionesp").val("");
+                    if (text == 'MATRIMONIO') {
+                        $('#estadocivil_id option').each(function () {
+                            if ($(this).text() == 'CASADO') {
+                                $("#estadocivil_id").val($(this).val());
+                                estadoCivil();
+                            }
+                        });
+                    }
+                    $("#sacramentos").val("");
                     $("#lugar").val("");
-
                 }
             }
         }
 
+        function pintarSacramentos(response) {
+            $.each(response.sacramentos, function (name, val) {
+                sacramentost.push({
+                    'sacramento_id': val.sacramento_id,
+                    'lugar': val.lugar
+                });
+                var html = "";
+                var text = $("#sacramentos option[value='" + val.sacramento_id + "']").text();
+                html = html + "<tr><td>" + text + "</td>";
+                html = html + "<td>" + val.lugar + "</td></tr>";
+                html = html + $("#tb2").html();
+                $("#tb2").html(html);
+                if (text == 'MATRIMONIO') {
+                    $('#estadocivil_id option').each(function () {
+                        if ($(this).text() == 'CASADO') {
+                            $("#estadocivil_id").val($(this).val());
+                            estadoCivil();
+                        }
+                    });
+                }
+            });
+        }
+
         function getIndex(element, index, array) {
-            if (element.situacion_id == item) {
+            if (element.sacramento_id == item) {
                 pos = true;
             }
         }
 
-        function categoria(id) {
+        function estadoCivil() {
+            $("#estadocivil_id").val();
+            var text = $("#estadocivil_id").find('option:selected').text();
+            switch (text) {
+                case 'CASADO':
+                    $(".casado").removeAttr('style', 'display');
+                    $(".anulacion").attr('style', 'display:none');
+                    $("#iglesia").attr('checked');
+                    $("#div_conyugue").removeAttr('style', 'display');
+                    $("#div_numhijos").removeAttr('style', 'display');
+                    break
+                case 'UNIÓN LIBRE':
+                    $(".anulacion").attr('style', 'display:none');
+                    $(".casado").attr('style', 'display:none');
+                    $(".union").removeAttr('style', 'display');
+                    $("#iglesia").removeAttr('checked');
+                    $("#div_conyugue").removeAttr('style', 'display');
+                    $("#div_numhijos").removeAttr('style', 'display');
+                    break
+                case 'ANULACIÓN DE MATRIMONIO':
+                    $(".casado").attr('style', 'display:none');
+                    $(".anulacion").removeAttr('style', 'display');
+                    $("#iglesia").removeAttr('checked');
+                    $("#div_conyugue").attr('style', 'display:none');
+                    $("#div_numhijos").attr('style', 'display:none');
+                    break
+                default:
+                    $(".anulacion").attr('style', 'display:none');
+                    $(".casado").attr('style', 'display:none');
+                    $("#iglesia").removeAttr('checked');
+                    $("#div_conyugue").attr('style', 'display:none');
+                    $("#div_numhijos").attr('style', 'display:none');
+                    break
+            }
+        }
 
+        function guardar() {
+            // reset form values from json object
+            $.each(data, function (name, val) {
+                var $el = $('[name="' + name + '"]'), type = $el.attr('type');
+                switch (type) {
+                    case 'checkbox':
+                        $el.attr('checked', 'checked');
+                        break;
+                    case 'radio':
+                        $el.filter('[value="' + val + '"]').attr('checked', 'checked');
+                        break;
+                    default:
+                        $el.val(val);
+                }
+            });
         }
     </script>
 @endsection

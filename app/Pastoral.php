@@ -35,4 +35,16 @@ class Pastoral extends Model
     public function comunidads() {
         return $this->hasMany(Comunidad::class);
     }
+
+    public function miembropastorals() {
+        return $this->hasMany(Miembropastoral::class);
+    }
+
+    public function planpastorals() {
+        return $this->hasMany(Planpastoral::class);
+    }
+
+    public function eventos() {
+        return $this->hasMany(Evento::class);
+    }
 }

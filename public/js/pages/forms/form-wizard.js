@@ -62,7 +62,50 @@ $(function () {
             return form.valid();
         },
         onFinished: function (event, currentIndex) {
-            swal("Good job!", "Submitted!", "success");
+            var nom = $("#nombres").val();
+            event.preventDefault();
+            Swal.fire({
+                title: 'Estas seguro(a)?',
+                text: "se agregara esta persona "+nom,
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, agregar!',
+                cancelButtonText:'cancelar'
+            }).then((result) => {
+                if (result.value) {
+                    let url = '../miembro';
+                    $.ajax({
+                        type: 'POST',
+                        url: url,
+                        data:
+                            {
+                                '_token': $('meta[name="csrf-token"]').attr('content'),
+                                'form': $('#wizard_with_validation').serialize(),
+                                'dispo': sacramentost
+                            }
+                    }).done(function (msg) {
+                        if (msg.status == 'ok') {
+                            Swal.fire(
+                                'Guardado!',
+                                msg.message,
+                                'success'
+                            ).then(result => {
+                                location.reload();
+                            });
+                        } else {
+                            Swal.fire(
+                                'Error!',
+                                msg.message,
+                                'danger'
+                            ).then(result => {
+                                location.reload();
+                            });
+                        }
+                    });
+                }
+            });
         }
     });
 

@@ -119,9 +119,9 @@
                eventClick: function(info){
                   let properties  = info.event.extendedProps;
                   div = `
-                         <p><strong>Profesional: </strong> ${ properties.profesional}</p>
-                         <p><strong>Estudiante: </strong> ${properties.estudiante}</p>
-                         <p><strong>Telefono: </strong> ${properties.telefono == '' ? 'SIN TELEFONO' : properties.telefono}</p>
+                         <p><strong>Pastoral: </strong> ${ properties.pastoral}</p>
+                         <p><strong>Responsable: </strong> ${properties.responsable}</p>
+                         <p><strong>Lugar: </strong> ${properties.lugar}</p>
                          <p><strong>Fecha: </strong> ${ info.event.start}</p>
                         `;
                   Swal.fire({
@@ -131,9 +131,9 @@
                   })
               },
               height: 'auto',
-              {{--events: {--}}
-              {{--    url: '{{route('remisiones.index')}}',--}}
-              {{--},--}}
+              events: {
+                  url: '{{route('evento.listar')}}',
+              },
            });
            calendar.render();
         });

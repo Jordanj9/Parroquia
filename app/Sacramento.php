@@ -23,4 +23,8 @@ class Sacramento extends Model
     protected $hidden = [
         //
     ];
+
+    public function miembrosacramentos() {
+        return $this->hasMany(Miembrosacramento::class);
+    }
 }

@@ -35,7 +35,7 @@
                     <h1 class="card-inside-title">DATOS DE LA COMUNIDAD</h1>
                     <div class="row clearfix">
                         <div class="col-md-12">
-                            <form class="form-horizontal" method="POST" action="{{route('comunidad.store')}}">
+                            <form method="POST" action="{{route('comunidad.store')}}">
                                 @csrf
                                 <div class="col-md-12">
                                     <div class="col-md-6" id="div_pas">

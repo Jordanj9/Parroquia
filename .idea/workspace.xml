@@ -13,44 +13,88 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e360b73e-6a43-44a5-a264-ef88e6517df0" name="Default Changelist" comment="Version 2.0 1 de sept del 2020 Jordan">
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_07_145411_add_column_to_miembros_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/data0/images/certificacion.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/data0/images/imagen1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/data0/images/imagen2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/data0/tooltips/certificacion.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/data0/tooltips/imagen1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/data0/tooltips/imagen2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/engine0/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/engine0/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/engine0/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/engine0/style.mod.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/engine0/wowslider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/engine0/wowslider.mod.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/engine0/ws-ctrl-cursive.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/engine0/ws-ctrl-cursive.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/engine0/ws-ctrl-cursive.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/engine0/ws-ctrl-cursive.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/ejemplo-howto.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/ejemplo-iframe.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/ejemplo.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/ejemplo.blade.php.bak" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pastoral/miembros/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pastoral/miembros/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pastoral/miembros/list.blade.php" afterDir="false" />
+    <list default="true" id="e360b73e-6a43-44a5-a264-ef88e6517df0" name="Default Changelist" comment="Version 3.0 81 de sept del 2020 Jordan">
+      <change afterPath="$PROJECT_DIR$/Parroquia.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Consejo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Evento.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ConsejoeconomicoController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ConsejopastoralController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/EventoController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PlanpastoralController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/VocaionalController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Miembrocomunidad.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Miembropastoral.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Miembrosacramento.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Miembrosituacion.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Planpastoral.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/vocaional.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/EventoFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/PlanpastoralFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/VocaionalFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_09_205013_create_miembrosituacions_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_09_205111_create_miembrosacramentos_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_09_205215_create_miembrocomunidads_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_10_015036_create_miembropastorals_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_10_024048_add_comunidades_to_miembros_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_10_132431_create_planpastorals_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_10_192629_create_consejos_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_10_210747_create_eventos_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_09_16_142946_create_vocaionals_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_10_20_121913_add_padresmaternor_to_miembros_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/EventoSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/PlanpastoralSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/VocaionalSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/docs/planes/Plan_2020910143738_Imagen2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/administracion/consejo_economico/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/administracion/consejo_economico/list.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/administracion/consejo_pastoral/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/administracion/consejo_pastoral/list.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/agenda/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/agenda/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/agenda/list.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pastoral/plan_pastoral/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pastoral/plan_pastoral/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pastoral/plan_pastoral/list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Parroquia.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Parroquia.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Administracion.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Administracion.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ComunidadController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ComunidadController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MiembroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MiembroController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SubpastoralController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SubpastoralController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Miembro.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Miembro.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_01_113602_create_miembros_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_01_113602_create_miembros_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/plugins/select2.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/plugins/select2.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/select2/dist/js/select2.full.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/select2/dist/js/select2.full.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/select2/dist/js/select2.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/select2/dist/js/select2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Pastoral.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Pastoral.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Sacramento.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Sacramento.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Situacionespiritual.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Situacionespiritual.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/data0/images/certificacion.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/data0/images/imagen1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/data0/images/imagen2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/data0/tooltips/certificacion.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/data0/tooltips/imagen1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/data0/tooltips/imagen2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/engine0/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/engine0/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/engine0/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/engine0/style.mod.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/engine0/wowslider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/engine0/wowslider.mod.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/engine0/ws-ctrl-cursive.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/engine0/ws-ctrl-cursive.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/engine0/ws-ctrl-cursive.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/engine0/ws-ctrl-cursive.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/pages/forms/form-wizard.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pages/forms/form-wizard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/web.config" beforeDir="false" afterPath="$PROJECT_DIR$/public/web.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/ejemplo-howto.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/ejemplo-iframe.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/ejemplo.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/ejemplo.blade.php.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/menu/administracion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menu/administracion.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/menu/pastoral.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menu/pastoral.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pastoral/comunidad/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pastoral/comunidad/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pastoral/miembros/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pastoral/miembros/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pastoral/miembros/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pastoral/miembros/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pastoral/pastorales/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pastoral/pastorales/list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -185,7 +229,8 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Appsiel" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Iglesia" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -193,20 +238,33 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Parroquia\resources\views\agenda" />
+      <recent name="C:\xampp\htdocs\Parroquia\resources\views\administracion\consejo_economico" />
+      <recent name="C:\xampp\htdocs\Parroquia\resources\views\administracion\consejo_pastoral" />
+      <recent name="C:\xampp\htdocs\Parroquia\resources\views\pastoral\plan_pastoral" />
+      <recent name="C:\xampp\htdocs\Parroquia\resources\views\pastoral\miembros" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\Parroquia\public" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\Parroquia\resources\views\pastoral\miembros" />
-      <recent name="C:\xampp\htdocs\Parroquia\resources\views\pastoral\comunidad" />
-      <recent name="C:\xampp\htdocs\Parroquia\resources\views\pastoral\subpastorales" />
-    </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
@@ -234,6 +292,19 @@
       <workItem from="1599225103269" duration="3103000" />
       <workItem from="1599395123483" duration="19217000" />
       <workItem from="1599488299091" duration="8036000" />
+      <workItem from="1599585125142" duration="20593000" />
+      <workItem from="1599684509634" duration="48099000" />
+      <workItem from="1600025498220" duration="2300000" />
+      <workItem from="1600264343127" duration="1220000" />
+      <workItem from="1600270460232" duration="339000" />
+      <workItem from="1600800072213" duration="4060000" />
+      <workItem from="1600867593934" duration="667000" />
+      <workItem from="1600983787444" duration="2515000" />
+      <workItem from="1601001629470" duration="398000" />
+      <workItem from="1601080734937" duration="7452000" />
+      <workItem from="1602762934734" duration="8562000" />
+      <workItem from="1602790953376" duration="45000" />
+      <workItem from="1603192153614" duration="30024000" />
     </task>
     <task id="LOCAL-00001" summary="Primer commit">
       <created>1598369349192</created>
@@ -249,7 +320,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598962935015</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Version 3.0 81 de sept del 2020 Jordan">
+      <created>1599585775459</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1599585775459</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,37 +349,46 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Primer commit" />
     <MESSAGE value="Version 2.0 1 de sept del 2020 Jordan" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 2.0 1 de sept del 2020 Jordan" />
+    <MESSAGE value="Version 3.0 81 de sept del 2020 Jordan" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 3.0 81 de sept del 2020 Jordan" />
   </component>
   <component name="WindowStateProjectService">
     <state x="436" y="219" key="#Notifications" timestamp="1598362123349">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
     <state x="436" y="219" key="#Notifications/0.30.1366.738@0.30.1366.738" timestamp="1598362123349" />
-    <state x="413" y="154" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1598982237155">
+    <state x="413" y="154" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599778023074">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
-    <state x="413" y="154" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.30.1366.738@0.30.1366.738" timestamp="1598982237155" />
-    <state x="463" y="140" key="FileChooserDialogImpl" timestamp="1599492695462">
+    <state x="413" y="154" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.30.1366.738@0.30.1366.738" timestamp="1599778023074" />
+    <state x="463" y="140" key="FileChooserDialogImpl" timestamp="1603210941582">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
-    <state x="463" y="140" key="FileChooserDialogImpl/0.30.1366.738@0.30.1366.738" timestamp="1599492695462" />
-    <state x="184" y="44" key="SettingsEditor" timestamp="1598363269462">
+    <state x="463" y="140" key="FileChooserDialogImpl/0.30.1366.738@0.30.1366.738" timestamp="1603210941582" />
+    <state x="184" y="44" key="SettingsEditor" timestamp="1600026056489">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
-    <state x="184" y="44" key="SettingsEditor/0.30.1366.738@0.30.1366.738" timestamp="1598363269462" />
-    <state x="275" y="128" key="Vcs.Push.Dialog.v2" timestamp="1598962966013">
+    <state x="184" y="44" key="SettingsEditor/0.30.1366.738@0.30.1366.738" timestamp="1600026056489" />
+    <state x="275" y="128" key="Vcs.Push.Dialog.v2" timestamp="1599585789898">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
-    <state x="275" y="128" key="Vcs.Push.Dialog.v2/0.30.1366.738@0.30.1366.738" timestamp="1598962966013" />
+    <state x="275" y="128" key="Vcs.Push.Dialog.v2/0.30.1366.738@0.30.1366.738" timestamp="1599585789898" />
+    <state x="555" y="243" key="cloudConfig.SelfSettingsDialog" timestamp="1602763183842">
+      <screen x="0" y="30" width="1366" height="738" />
+    </state>
+    <state x="555" y="243" key="cloudConfig.SelfSettingsDialog/0.30.1366.738@0.30.1366.738" timestamp="1602763183842" />
+    <state x="391" y="116" width="583" height="566" key="find.popup" timestamp="1602767880601">
+      <screen x="0" y="30" width="1366" height="738" />
+    </state>
+    <state x="391" y="116" width="583" height="566" key="find.popup/0.30.1366.738@0.30.1366.738" timestamp="1602767880601" />
     <state x="339" y="182" key="run.anything.popup" timestamp="1598992839936">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
     <state x="339" y="182" key="run.anything.popup/0.30.1366.738@0.30.1366.738" timestamp="1598992839936" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1599401325142">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1603224551018">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.30.1366.738@0.30.1366.738" timestamp="1599401325142" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.30.1366.738@0.30.1366.738" timestamp="1603224551017" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -310,6 +397,11 @@
           <url>file://$PROJECT_DIR$/resources/views/auth/login.blade.php</url>
           <line>56</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/pastoral/plan_pastoral/list.blade.php</url>
+          <line>89</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

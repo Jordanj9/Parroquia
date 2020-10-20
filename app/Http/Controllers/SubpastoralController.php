@@ -31,7 +31,7 @@ class SubpastoralController extends Controller
         $pastorales = collect($pastorales);
         if (count($datos) > 0) {
             foreach ($datos as $item) {
-                $pastorales[$item->id] = "PASTORAL " . $item->nombre . " - PARROQUIA: " . $item->parroquia->nombre;
+                $pastorales[$item->id] = "PASTORAL " . $item->nombre;
             }
         }
         return view('pastoral.subpastorales.create')
@@ -44,7 +44,7 @@ class SubpastoralController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request) {
         $sub = new Subpastoral($request->all());
@@ -84,7 +84,7 @@ class SubpastoralController extends Controller
         $pastorales = collect($pastorales);
         if (count($datos) > 0) {
             foreach ($datos as $item) {
-                $pastorales[$item->id] = "PASTORAL " . $item->nombre . " - PARROQUIA: " . $item->parroquia->nombre;
+                $pastorales[$item->id] = "PASTORAL " . $item->nombre;
             }
         }
         return view('pastoral.subpastorales.edit')
@@ -98,7 +98,7 @@ class SubpastoralController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Subpastoral $subpastoral
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id) {
         $sub = Subpastoral::find($id);
@@ -121,7 +121,7 @@ class SubpastoralController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\Subpastoral $subpastoral
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id) {
         $sub = Subpastoral::find($id);

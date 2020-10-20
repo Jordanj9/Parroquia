@@ -33,7 +33,7 @@ class ComunidadController extends Controller
         $datos = Pastoral::all()->sortBy('nombre');
         if (count($datos) > 0) {
             foreach ($datos as $item) {
-                $pastorales[$item->id] = "PASTORAL " . $item->nombre . " - PARROQUIA: " . $item->parroquia->nombre;
+                $pastorales[$item->id] = "PASTORAL " . $item->nombre;
             }
         }
         $horas = ['6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00',
@@ -48,7 +48,7 @@ class ComunidadController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request) {
         if (isset($request->subpastoral_id)) {
@@ -101,13 +101,12 @@ class ComunidadController extends Controller
             flash("La Comunidad ingresada no pudo ser almacenada de forma correcta por favor intentelo mas tarde. Error: " . $result)->warning();
             return redirect()->route("comunidad.index");
         }
-
-
     }
 
     /**
      * llena las tablas liders y comunidadlider
      *
+     * @return string
      */
     public function comunidadlider($array, $tipo, $response, $comunidad_id) {
         foreach ($array as $item) {
@@ -169,7 +168,7 @@ class ComunidadController extends Controller
         $datos = Pastoral::all()->sortBy('nombre');
         if (count($datos) > 0) {
             foreach ($datos as $item) {
-                $pastorales[$item->id] = "PASTORAL " . $item->nombre . " - PARROQUIA: " . $item->parroquia->nombre;
+                $pastorales[$item->id] = "PASTORAL " . $item->nombre;
             }
         }
         $horas = ['6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00',
@@ -221,7 +220,7 @@ class ComunidadController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Comunidad $comunidad
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id) {
         $comunidad = Comunidad::find($id);
@@ -255,7 +254,7 @@ class ComunidadController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\Comunidad $comunidad
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id) {
         $comunidad = Comunidad::find($id);
@@ -336,7 +335,7 @@ class ComunidadController extends Controller
             } else {
                 return response()->json([
                     'status' => 'error',
-                    'message' => "La Persona <strong>" . $comunidadlier->lider->nombre . "</strong> no pudo ser retirado. Error: " . $result2
+                    'message' => "La Persona <strong>" . $comunidadlier->lider->nombre . "</strong> no pudo ser agragado. Error: " . $result2
                 ]);
             }
         }
@@ -380,7 +379,7 @@ class ComunidadController extends Controller
             $response = null;
             foreach ($modelo->comunidads as $item) {
                 $obj['id'] = $item->id;
-                $obj['value'] = "COMUNIDAD: " . $item->numero . " DÍA - HORA: " . $item->dia . " - " . $item->hora;
+                $obj['value'] = "COMUNIDAD: N°." . $item->numero . " - DÍA Y HORA DE REUNIÓN: " . $item->dia . " - " . $item->hora;
                 $response[] = $obj;
             }
             return json_encode($response);

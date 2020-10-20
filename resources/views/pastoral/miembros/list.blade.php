@@ -56,13 +56,13 @@
                                     <td>{{$miembro->celular}}</td>
                                     <td>{{$miembro->correo}}</td>
                                     <td style="text-align: center;">
-                                        <a href="{{ route('miembro.edit',$miembro->id)}}"
-                                           class="btn bg-indigo waves-effect btn-xs" data-toggle="tooltip"
-                                           data-placement="top" title="Editar Miembro"><i class="material-icons">mode_edit</i></a>
-                                        @if($pastoral->id > 16)
-                                        <a href="#" onclick="eliminar(event,{{$miembro->id}})" class="btn bg-red waves-effect btn-xs" data-toggle="tooltip"
-                                           data-placement="top" title="Eliminar Miembro"><i class="material-icons">delete</i></a>
-                                        @endif
+{{--                                        <a href="{{ route('miembro.edit',$miembro->id)}}"--}}
+{{--                                           class="btn bg-indigo waves-effect btn-xs" data-toggle="tooltip"--}}
+{{--                                           data-placement="top" title="Editar Miembro"><i class="material-icons">mode_edit</i></a>--}}
+
+{{--                                        <a href="#" onclick="eliminar(event,{{$miembro->id}})" class="btn bg-red waves-effect btn-xs" data-toggle="tooltip"--}}
+{{--                                           data-placement="top" title="Eliminar Miembro"><i class="material-icons">delete</i></a>--}}
+
                                     </td>
                                 </tr>
                             @endforeach

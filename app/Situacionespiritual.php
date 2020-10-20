@@ -23,4 +23,8 @@ class Situacionespiritual extends Model
     protected $hidden = [
         //
     ];
+
+    public function miembrosituacions() {
+        return $this->hasMany(Miembrosituacion::class);
+    }
 }

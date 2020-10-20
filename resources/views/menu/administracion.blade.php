@@ -38,7 +38,7 @@
                             </a>
                         @endif
                             @if(session()->exists('PAG_ADMINISTRACION-CONSEJO-PASTORAL'))
-                                <a href="{{route('tutoria.index')}}" class="btn bg-indigo btn-lg waves-effect">
+                                <a href="{{route('consejopastoral.index')}}" class="btn bg-indigo btn-lg waves-effect">
                                     <div>
                                         <span><i class="material-icons">folder_shared</i></span>
                                         <span>CONSEJO PASTORAL</span>
@@ -46,7 +46,7 @@
                                 </a>
                             @endif
                             @if(session()->exists('PAG_ADMINISTRACION-CONSEJO-ECONOMICO'))
-                                <a href="{{route('tutoria.index')}}" class="btn bg-indigo btn-lg waves-effect">
+                                <a href="{{route('consejoeconomico.index')}}" class="btn bg-indigo btn-lg waves-effect">
                                     <div>
                                         <span><i class="material-icons">folder_shared</i></span>
                                         <span>CONSEJO ECONÓMICO</span>
@@ -54,7 +54,7 @@
                                 </a>
                             @endif
                             @if(session()->exists('PAG_ADMINISTRACION-CENSO-PARROQUIAL'))
-                                <a href="{{route('tutoria.index')}}" class="btn bg-indigo btn-lg waves-effect">
+                                <a href="#" disabled="disabled" class="btn bg-indigo btn-lg waves-effect">
                                     <div>
                                         <span><i class="material-icons">folder_shared</i></span>
                                         <span>CENSO PARROQUIAL</span>

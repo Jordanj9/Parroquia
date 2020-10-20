@@ -57,7 +57,7 @@
                             </a>
                         @endif
                         @if(session()->exists('PAG_PASTORAL-PLAN'))
-                            <a href="{{route('reportes.niveles')}}" class="btn btn-primary btn-lg bg-teal waves-effect">
+                            <a href="{{route('planpastoral.index')}}" class="btn btn-primary btn-lg bg-teal waves-effect">
                                 <div>
                                     <span><i class="material-icons">view_module</i></span>
                                     <span>PLAN PASTORAL</span>

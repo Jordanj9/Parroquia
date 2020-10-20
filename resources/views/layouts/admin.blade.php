@@ -194,6 +194,15 @@
                                     class="material-icons">layers</i><span>Administracion</span></a></li>
                     @endif
                 @endif
+                @if(session()->exists('MOD_ADMINISTRACION'))
+                    @if($location=='agenda')
+                        <li class="active"><a href="{{route('evento.index')}}"><i
+                                    class="material-icons">date_range</i><span>Agenda</span></a></li>
+                    @else
+                        <li><a href="{{route('evento.index')}}"><i
+                                    class="material-icons">date_range</i><span>Agenda</span></a></li>
+                    @endif
+                @endif
                 <li>
                     <a href="{{ route('logout') }}"
                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
@@ -359,6 +368,8 @@
 <!-- Jquery Nestable -->
 <script src="{{ asset('js/nestable/jquery.nestable.js')}}"></script>
 <script src="{{ asset('js/pages/ui/sortable-nestable.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/javascript">
 
     var url = "<?php echo config('app.url'); ?>/";

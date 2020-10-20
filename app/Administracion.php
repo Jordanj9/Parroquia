@@ -31,4 +31,16 @@ class Administracion extends Model
     public function empleados() {
         return $this->hasMany(Empleado::class);
     }
+
+    public function planpastorals() {
+        return $this->hasMany(Planpastoral::class);
+    }
+
+    public function consejos() {
+        return $this->hasMany(Consejo::class);
+    }
+
+    public function eventos() {
+        return $this->hasMany(Evento::class);
+    }
 }
