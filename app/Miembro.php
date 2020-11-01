@@ -33,7 +33,7 @@ class Miembro extends Model
     }
 
     public function ocupacion() {
-        return $this->belongsTo(Estadocivil::class);
+        return $this->belongsTo(ocupacion::class);
     }
 
     public function miembrocomunidads() {

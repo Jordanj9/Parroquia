@@ -203,7 +203,10 @@ class MiembroController extends Controller
      */
     public function show(Miembro $miembro)
     {
-        //
+        return view('pastoral.miembros.show')
+            ->with('location','pastoral')
+            ->with('miembro',$miembro)
+            ->with('comunidades',$miembro->comunidades != null ? json_decode($miembro->comunidades):null);
     }
 
     /**
@@ -251,8 +254,6 @@ class MiembroController extends Controller
     {
         $miembro = Miembro::where([['tipo_documento', $tipo_doc], ['identificacion', $identificacion]])->first();
         if ($miembro != null) {
-//            $obj['miembro_id']=$miembro->id;
-//            $obj['identificacion']
             $miembro->sacramentos = $miembro->miembrosacramentos;
             $miembro->realidades = $miembro->miembropastorals;
             $miembro->comunidadesp = $miembro->miembrocomunidads;

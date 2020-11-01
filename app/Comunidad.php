@@ -24,15 +24,23 @@ class Comunidad extends Model
         //
     ];
 
-    public function pastoral() {
+    public function pastoral()
+    {
         return $this->belongsTo(Pastoral::class);
     }
 
-    public function subpastoral() {
+    public function subpastoral()
+    {
         return $this->belongsTo(Subpastoral::class);
     }
 
-    public function comunidadliders() {
+    public function comunidadliders()
+    {
         return $this->hasMany(Comunidadlider::class);
+    }
+
+    public function miembrocomunidads()
+    {
+        return $this->hasMany(Miembrocomunidad::class);
     }
 }

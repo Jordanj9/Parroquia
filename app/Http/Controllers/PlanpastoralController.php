@@ -56,7 +56,7 @@ class PlanpastoralController extends Controller
         $plan = new Planpastoral($request->all());
         $plan->descripcion = isset($request->descripcion) ? strtoupper($request->descripcion) : null;
         $hoy = getdate();
-        $file = $request->file("nombre");
+        $file = $request->file("archivo");
         $name = "Plan_" . $hoy["year"] . $hoy["mon"] . $hoy["mday"] . $hoy["hours"] . $hoy["minutes"] . $hoy["seconds"] . "_" . $file->GetClientOriginalName();
         $path = public_path() . "/docs/planes/";
         $file->move($path, $name);

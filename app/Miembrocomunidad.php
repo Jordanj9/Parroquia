@@ -32,7 +32,7 @@ class Miembrocomunidad extends Model
         return $this->belongsTo(Miembro::class);
     }
 
-    public function miembrocomunidads() {
-        return $this->hasMany(Miembrocomunidad::class);
-    }
+//    public function miembrocomunidads() {
+//        return $this->hasMany(Miembrocomunidad::class);
+//    }
 }

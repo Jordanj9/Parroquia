@@ -35,6 +35,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('general', 'MenuController@general')->name('admin.general');
     Route::get('administracion', 'MenuController@administracion')->name('admin.administracion');
     Route::get('pastoral', 'MenuController@pastoral')->name('admin.pastoral');
+    Route::get('reportes', 'MenuController@reportes')->name('admin.reportes');
     Route::get('auditoria', 'MenuController@auditoria')->name('admin.auditoria');
     //EVENTOS
     Route::resource('evento', 'EventoController');
@@ -62,16 +63,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'usuarios'], function () {
     Route::post('usuario/contrasenia/cambiar/admin/finalizar', 'UsuarioController@cambiarPass')->name('usuario.cambiarPass');
 });
 
-//
-////GRUPO DE RUTAS PARA LA GESTIÓN ACADÉMICA
-//Route::group(['middleware' => 'auth', 'prefix' => 'acadmico'], function () {
-//    Route::resource('periodosacademicos', 'PeriodoacademicoController');
-//    Route::get('periodosacademicos/{id}/delete', 'PeriodoacademicoController@destroy')->name('periodosacademicos.delete');
-//
-//    Route::get('reporte/nivel-de-riesgo', 'ReporteAcademincoController@nivelesDeRiesgo')->name('reportes.niveles');
-//
-//});
-
 //GRUPO DE RUTAS PARA EL MODULO GENERAL
 Route::group(['middleware' => 'auth', 'prefix' => 'general'], function () {
     //PARROQUIA
@@ -89,20 +80,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'general'], function () {
     //OCUPACIONES
     Route::resource('ocupacion', 'OcupacionController');
     Route::get('ocupacion/{id}/delete', 'OcupacionController@destroy')->name('ocupacion.delete');
-//    //CRUD DE LOS PROGRAMAS DE APOYO
-//    Route::resource('programaapoyo', 'ProgramaapoyoController');
-//    Route::get('programaapoyo/{id}/delete', 'ProgramaapoyoController@destroy')->name('programaapoyo.delete');
-
-//    //CRUD DE TALLERISTA
-//    Route::resource('talleristas', 'TalleristaController');
-//    Route::get('talleristas/{id}/delete', 'TalleristaController@destroy')->name('talleristas.delete');
-//    Route::get('talleristas/{id}/disponibilidad', 'TalleristaController@disponibilidad')->name('talleristas.disponibilidad');
-//
-//    //DISPONIBILIDAD DOCENTES
-//    Route::resource('docentes', 'DocenteController');
-//    Route::get('get/{identificacion}/docente', 'DocenteController@getDocente')->name('docente.getdocente');
-//    Route::put('docente/{id}/guardar_disponibilidad', 'DocenteController@guardarDisponibilidad')->name('docente.gurardar_disponibilidad');
-
 });
 
 //GRUPO DE RUTAS PARA EL MODULO DE ADMINISTRACIÓN
@@ -138,24 +115,12 @@ Route::group(['middleware' => 'auth', 'prefix' => 'pastoral'], function () {
     //PLAN PASTORAL
     Route::resource('planpastoral', 'PlanpastoralController');
 });
-////GRUPO DE RUTAS PARA EL MODULO INTERVENCION
-//Route::group(['middleware' => 'auth', 'prefix' => 'intervencion'], function () {
-//    //INTERVENCIÓN INDIVIDUAL
-//    Route::resource('individualadmin', 'IntervencionindividualController');
-//    Route::get('individualadmin/{id}/delete', 'IntervencionindividualController@destroy')->name('individualadmin.delete');
-//    Route::get('individualadmin/get/{identificacion}/estudiante', 'IntervencionindividualController@getEstudiante')->name('individualadmin.getestudiante');
-//    Route::get('individualadmin/get/personal/{area}/{asignatura}', 'IntervencionindividualController@getPersonal')->name('individualadmin.getPersonal');
-//    Route::get('individualadmin/get/{persona}/disponibilidad', 'IntervencionindividualController@getDisponibilidad')->name('individualadmin.getDisponibilidad');
-//    Route::get('individualadmin/get/programas', 'IntervencionindividualController@getProgramas')->name('individual.getProgramas');
-//    Route::get('individualadmin/get/asignaturas/{area}', 'IntervencionindividualController@getAsignaturas')->name('individualadmin.getAsignaturas');
-//    Route::get('individualadmin/{intervension}/remitir', 'IntervencionindividualController@remision')->name('individualadmin.remision');
-//    Route::post('individualadmin/guardarremision', 'IntervencionindividualController@guardarRemision')->name('individualadmin.guardarRemision');
-//
-//    //Route::get('remisiones', 'RemisionController@index')->name('remisiones.index');
-//    //TUTORIAS
-//    Route::resource('tutoria', 'TutoriaController');
-//    Route::get('tutoria/{id}/delete', 'TutoriaController@destroy')->name('tutoria.delete');
-//    Route::get('tutoria/get/{fecha}/remisiones', 'TutoriaController@getRemisiones')->name('tutoria.getRemisiones');
-//});
+//GRUPO DE RUTAS PARA EL MODULO DE REPORTES
+Route::group(['middleware' => 'auth', 'prefix' => 'reportes'], function () {
+    //MIEMBRO POR PASTORAL
+    Route::get('miembro/pastoral/{pastoral_id}/{desde}/{hasta}/{pdf}/consultar', 'ReporteController@miembrosPastoral')->name('reportes.miembrospastoral');
+    Route::get('miembro/pastoral/get/view', 'ReporteController@ViewMiembroPastoral')->name('reportes.ViewMiembroPastoral');
+});
+
 
 

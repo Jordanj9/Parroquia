@@ -30,12 +30,18 @@ class MenuController extends Controller
 //        return view('menu.intervencion')->with('location', 'intervencion');
 //    }
 
-    public function pastoral() {
+    public function pastoral()
+    {
         return view('menu.pastoral')->with('location', 'pastoral');
     }
 
     public function administracion()
     {
         return view('menu.administracion')->with('location', 'administracion');
+    }
+
+    public function reportes()
+    {
+        return view('menu.reportes')->with('location', 'reportes');
     }
 }

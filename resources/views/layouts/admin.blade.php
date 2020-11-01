@@ -203,6 +203,15 @@
                                     class="material-icons">date_range</i><span>Agenda</span></a></li>
                     @endif
                 @endif
+                @if(session()->exists('MOD_REPORTES'))
+                    @if($location=='reportes')
+                        <li class="active"><a href="{{route('admin.reportes')}}"><i
+                                    class="material-icons">trending_up</i><span>Reportes</span></a></li>
+                    @else
+                        <li><a href="{{route('admin.reportes')}}"><i
+                                    class="material-icons">trending_up</i><span>Reportes</span></a></li>
+                    @endif
+                @endif
                 <li>
                     <a href="{{ route('logout') }}"
                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i

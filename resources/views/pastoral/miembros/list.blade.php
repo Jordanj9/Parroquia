@@ -38,7 +38,6 @@
                                 <th>IDENTIFICACIÓN</th>
                                 <th>NOMBRE</th>
                                 <th>EDAD</th>
-                                <th>SEXO</th>
                                 <th>DIRECCIÓN</th>
                                 <th>CELULAR</th>
                                 <th>CORREO</th>
@@ -51,18 +50,18 @@
                                     <td>{{$miembro->tipo_documento." - ".$miembro->identificacion}}</td>
                                     <td>{{$miembro->nombres." ".$miembro->apellidos}}</td>
                                     <td>{{$miembro->edad}}</td>
-                                    <td>{{$miembro->sexo}}</td>
                                     <td>{{$miembro->direccion." ".$miembro->barrio}}</td>
                                     <td>{{$miembro->celular}}</td>
                                     <td>{{$miembro->correo}}</td>
                                     <td style="text-align: center;">
-{{--                                        <a href="{{ route('miembro.edit',$miembro->id)}}"--}}
-{{--                                           class="btn bg-indigo waves-effect btn-xs" data-toggle="tooltip"--}}
-{{--                                           data-placement="top" title="Editar Miembro"><i class="material-icons">mode_edit</i></a>--}}
-
-{{--                                        <a href="#" onclick="eliminar(event,{{$miembro->id}})" class="btn bg-red waves-effect btn-xs" data-toggle="tooltip"--}}
-{{--                                           data-placement="top" title="Eliminar Miembro"><i class="material-icons">delete</i></a>--}}
-
+                                        <a href="{{ route('miembro.edit',$miembro->id)}}"
+                                           class="btn bg-indigo waves-effect btn-xs" data-toggle="tooltip"
+                                           data-placement="top" title="Editar Miembro"><i class="material-icons">mode_edit</i></a>
+                                        <a href="{{ route('miembro.show',$miembro)}}"
+                                           class="btn bg-green waves-effect btn-xs" data-toggle="tooltip"
+                                           data-placement="top" title="Ver Miembro"><i class="material-icons">remove_red_eye</i></a>
+                                        <a href="#" onclick="eliminar(event,{{$miembro->id}})" class="btn bg-red waves-effect btn-xs" data-toggle="tooltip"
+                                           data-placement="top" title="Eliminar Miembro"><i class="material-icons">delete</i></a>
                                     </td>
                                 </tr>
                             @endforeach

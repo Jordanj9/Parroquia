@@ -13,8 +13,10 @@
 @section('content')
     <div class="col-md-12">
         <div class="alert bg-blue-grey alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-            Bienvenid@ <strong>{{Auth::user()->nombres . ' ' . Auth::user()->apellidos}}</strong> al Sitio Oficial de la Parroquia Nuestra Señora Del Rosario. Feliz Día, El Señor te Bendiga en Abundancia!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                    aria-hidden="true">×</span></button>
+            Bienvenid@ <strong>{{Auth::user()->nombres . ' ' . Auth::user()->apellidos}}</strong> al Sitio Oficial de la
+            Parroquia Nuestra Señora Del Rosario. Feliz Día, El Señor te Bendiga en Abundancia!
         </div>
     </div>
     <div class="col-md-12">
@@ -43,49 +45,51 @@
                     </div>
                 </div>
             @endif
-                @if(session()->exists('MOD_GENERAL'))
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <div class="info-box bg-deep-orange hover-zoom-effect hover-expand-effect">
-                            <div class="icon">
-                                <a href="{{route('admin.general')}}"><i class="material-icons">settings</i></a>
-                            </div>
-                            <div class="content">
-                                <div class="text">ADMINISTRACIÓN</div>
-                                <div class="number">GENERAL</div>
-                            </div>
+            @if(session()->exists('MOD_GENERAL'))
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="info-box bg-deep-orange hover-zoom-effect hover-expand-effect">
+                        <div class="icon">
+                            <a href="{{route('admin.general')}}"><i class="material-icons">settings</i></a>
+                        </div>
+                        <div class="content">
+                            <div class="text">ADMINISTRACIÓN</div>
+                            <div class="number">GENERAL</div>
                         </div>
                     </div>
-                @endif
-                @if(session()->exists('MOD_PASTORAL'))
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <div class="info-box bg-teal hover-zoom-effect hover-expand-effect">
-                            <div class="icon">
-                                <a href="{{route('admin.pastoral')}}"><i class="material-icons">description</i></a>
-                            </div>
-                            <div class="content">
-                                <div class="text">ADMINISTRACIÓN</div>
-                                <div class="number">PASTORAL</div>
-                            </div>
+                </div>
+            @endif
+            @if(session()->exists('MOD_PASTORAL'))
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="info-box bg-teal hover-zoom-effect hover-expand-effect">
+                        <div class="icon">
+                            <a href="{{route('admin.pastoral')}}"><i class="material-icons">description</i></a>
+                        </div>
+                        <div class="content">
+                            <div class="text">ADMINISTRACIÓN</div>
+                            <div class="number">PASTORAL</div>
                         </div>
                     </div>
-                @endif
-                @if(session()->exists('MOD_ADMINISTRACION'))
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <div class="info-box bg-indigo hover-zoom-effect hover-expand-effect">
-                            <div class="icon">
-                                <a href="{{route('admin.administracion')}}"><i class="material-icons">layers</i></a>
-                            </div>
-                            <div class="content">
-                                <div class="text">GESTIÓN DE LA</div>
-                                <div class="number">ADMINISTRACIÓN</div>
-                            </div>
+                </div>
+            @endif
+            @if(session()->exists('MOD_ADMINISTRACION'))
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="info-box bg-indigo hover-zoom-effect hover-expand-effect">
+                        <div class="icon">
+                            <a href="{{route('admin.administracion')}}"><i class="material-icons">layers</i></a>
+                        </div>
+                        <div class="content">
+                            <div class="text">GESTIÓN DE LA</div>
+                            <div class="number">ADMINISTRACIÓN</div>
                         </div>
                     </div>
-                @endif
+                </div>
+            @endif
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="info-box bg-red hover-zoom-effect hover-expand-effect">
                     <div class="icon">
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="material-icons">exit_to_app</i></a>
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
+                                class="material-icons">exit_to_app</i></a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
                         </form>
@@ -105,37 +109,37 @@
     <script src="{{asset('plugins/fullcalendar/js/main.min.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="{{asset('plugins/fullcalendar/js/locales-all.min.js')}}"></script>
-   <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded',()=>{
-           var calendarEl =  document.getElementById('calendar');
-           var calendar =  new FullCalendar.Calendar(calendarEl,{
-              locale:'es',
-              themeSystem:'bootstrap',
-              headerToolbar: {
-                  left: 'prev,next,today',
-                  center: 'title',
-                  right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-              },
-               eventClick: function(info){
-                  let properties  = info.event.extendedProps;
-                  div = `
-                         <p><strong>Pastoral: </strong> ${ properties.pastoral}</p>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', () => {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                locale: 'es',
+                themeSystem: 'bootstrap',
+                headerToolbar: {
+                    left: 'prev,next,today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+                },
+                eventClick: function (info) {
+                    let properties = info.event.extendedProps;
+                    div = `
+                         <p><strong>Pastoral: </strong> ${properties.pastoral}</p>
                          <p><strong>Responsable: </strong> ${properties.responsable}</p>
                          <p><strong>Lugar: </strong> ${properties.lugar}</p>
-                         <p><strong>Fecha: </strong> ${ info.event.start}</p>
+                         <p><strong>Fecha: </strong> ${info.event.start}</p>
                         `;
-                  Swal.fire({
-                      title: info.event.title,
-                      html:div,
-                      showCloseButton: true,
-                  })
-              },
-              height: 'auto',
-              events: {
-                  url: '{{route('evento.listar')}}',
-              },
-           });
-           calendar.render();
+                    Swal.fire({
+                        title: info.event.title,
+                        html: div,
+                        showCloseButton: true,
+                    })
+                },
+                height: 'auto',
+                events: {
+                    url: '{{route('evento.listar')}}',
+                },
+            });
+            calendar.render();
         });
-   </script>
+    </script>
 @endsection
