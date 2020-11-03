@@ -42,7 +42,7 @@ class MiembroController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -74,8 +74,6 @@ class MiembroController extends Controller
             ->with('sacramentos', $sacramentos)
             ->with('anio', $hoy['year'])
             ->with('estados', $estados);
-
-
     }
 
     /**
@@ -199,7 +197,7 @@ class MiembroController extends Controller
      * Display the specified resource.
      *
      * @param \App\Miembro $miembro
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function show(Miembro $miembro)
     {

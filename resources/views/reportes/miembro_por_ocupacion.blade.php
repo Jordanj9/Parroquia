@@ -3,7 +3,7 @@
     <ol class="breadcrumb breadcrumb-bg-blue-grey" style="margin-bottom: 30px;">
         <li><a href="{{route('inicio')}}">Inicio</a></li>
         <li><a href="{{route('admin.reportes')}}">Reportes</a></li>
-        <li class="active"><a href="">Miembros por Pastoral</a></li>
+        <li class="active"><a href="">Miembros por Ocupación</a></li>
     </ol>
 @endsection
 @section('content')
@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="header">
                     <h2>
-                        REPORTES - MIEMBROS POR PASTORAL<small>Haga clic en el botón de 3 puntos de la derecha de
+                        REPORTES - MIEMBROS POR OCUPACIÓN<small>Haga clic en el botón de 3 puntos de la derecha de
                             este título para ayuda.</small>
                     </h2>
                     <ul class="header-dropdown m-r--5">
@@ -29,27 +29,16 @@
                 </div>
                 <div class="body">
                     <div class="form-group">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-line">
-                                <label>Pastoral</label>
-                                <br/><select class="form-control show-tick" name="pastoral_id" id="pastoral_id">
-                                    <option value="TODO">TODO</option>
-                                    @foreach($pastorales as $key=>$value)
+                                <label>Ocupación</label>
+                                <select data-placeholder="Seleccione la ocupacion" class="chosen-select"
+                                        tabindex="-1" name="ocupacion_id" id="ocupacion_id">
+                                    <option value="">--seleccione una opción--</option>
+                                    @foreach($ocupaciones as $key=>$value)
                                         <option value="{{$key}}">{{$value}}</option>
                                     @endforeach
                                 </select>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-line">
-                                <label>Desde</label>
-                                <br/><input type="date" class="form-control" name="desde" id="desde">
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-line">
-                                <label>Hasta</label>
-                                <br/><input type="date" class="form-control" name="hasta" id="hasta">
                             </div>
                         </div>
                     </div>
@@ -76,7 +65,7 @@
                                 <th>TELEFONO</th>
                                 <th>SEXO</th>
                                 <th>EDAD</th>
-                                <th>PASTORAL</th>
+                                <th>OCUPACIÓN</th>
                             </tr>
                             </thead>
                         </table>
@@ -93,7 +82,7 @@
                     <h4 class="modal-title" id="defaultModalLabel">SOBRE EL REPORTE</h4>
                 </div>
                 <div class="modal-body">
-                    <strong>Detalles: </strong>Consulte los miembros por las direfentes pastorales.
+                    <strong>Detalles: </strong>Consulte los miembros por las diferentes ocupaciones.
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">ACEPTAR</button>
@@ -110,85 +99,41 @@
         let ruta;
         $(document).ready(function () {
             tabla = $('#tabla').DataTable();
+            $(".chosen-select").chosen();
         });
 
         function getData() {
-            var pastoral = $("#pastoral_id").val();
-            var desde = $("#desde").val();
-            var hasta = $("#hasta").val();
-            if (pastoral.length <= 0 || Date.parse(desde) >= Date.parse(hasta)) {
-                notify("Atención!", "Debe seleccionar un rango de fecha correcto.", "warning");
+            var ocuapacion = $("#ocupacion_id").val();
+            if (ocuapacion.length <= 0 ) {
+                notify("Atención!", "Debe seleccionar una ocupación.", "warning");
                 return;
             }
             tabla.destroy();
-            if (desde.length <= 0) desde = null;
-            if (hasta.length <= 0) hasta = null;
             var pdf = false;
             tabla = $('#tabla').DataTable({
                 "ServiceSide": true,
-                "ajax": '{{url("reportes/miembro/pastoral/")}}/' + pastoral + "/" + desde + "/" + hasta + "/" + pdf + "/consultar",
+                "ajax": '{{url("reportes/miembro/get/ocupacion/")}}/' + ocuapacion + "/" + pdf + "/consultar",
                 "columns": [
                     {data: 'nom'},
                     {data: 'dir'},
                     {data: 'tel'},
                     {data: 'sexo'},
                     {data: 'edad'},
-                    {data: 'pastoral'},
+                    {data: 'ocupacion'},
                 ]
             });
         }
 
-        function eliminar(event, id) {
-            event.preventDefault();
-            Swal.fire({
-                title: 'Estas seguro(a)?',
-                text: "no podras revertilo!",
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Si, eliminarlo!',
-                cancelButtonText: 'cancelar'
-            }).then((result) => {
-                if (result.value) {
-                    let url = 'pastorales/' + id;
-                    axios.delete(url).then(result => {
-                        let data = result.data;
-                        if (data.status == 'ok') {
-                            Swal.fire(
-                                'Eliminado!',
-                                data.message,
-                                'success'
-                            ).then(result => {
-                                location.reload();
-                            });
-                        } else {
-                            Swal.fire(
-                                'Error!',
-                                data.message,
-                                'danger'
-                            ).then(result => {
-                                location.reload();
-                            });
-                        }
-                    });
-                }
-            })
-        }
-
         function getMiembros() {
-            var pastoral = $("#pastoral_id").val();
-            var desde = $("#desde").val();
-            var hasta = $("#hasta").val();
-            if (pastoral.length <= 0 || Date.parse(desde) >= Date.parse(hasta)) {
-                notify("Atención!", "Debe seleccionar un rango de fecha correcto.", "warning");
+            var ocuapacion = $("#ocupacion_id").val();
+            if (ocuapacion.length <= 0 ) {
+                notify("Atención!", "Debe seleccionar una ocupación.", "warning");
+                return;
             } else {
-                if (desde.length <= 0) desde = null;
-                if (hasta.length <= 0) hasta = null;
                 var pdf = true;
                 var a = document.createElement("a");
                 a.target = "_blank";
-                a.href = '{{url("reportes/miembro/pastoral/")}}/' + pastoral + "/" + desde + "/" + hasta + "/" + pdf + "/consultar";
+                a.href = '{{url("reportes/miembro/get/ocupacion/")}}/' + ocuapacion + "/" + pdf + "/consultar";
                 a.click();
             }
         }

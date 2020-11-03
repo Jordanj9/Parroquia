@@ -120,6 +120,13 @@ Route::group(['middleware' => 'auth', 'prefix' => 'reportes'], function () {
     //MIEMBRO POR PASTORAL
     Route::get('miembro/pastoral/{pastoral_id}/{desde}/{hasta}/{pdf}/consultar', 'ReporteController@miembrosPastoral')->name('reportes.miembrospastoral');
     Route::get('miembro/pastoral/get/view', 'ReporteController@ViewMiembroPastoral')->name('reportes.ViewMiembroPastoral');
+    Route::get('miembro/porcomunidad/get/', 'ReporteController@ViewMiembroComunidad')->name('reportes.viewmiembrocomunidad');
+    Route::get('miembro/get/comunidad/{comunidad_id}/{desde}/{hasta}/{pdf}/consultar', 'ReporteController@miembrosComunidad')->name('reportes.miembroscomunidad');
+    Route::get('miembro/porocupacion/get/', 'ReporteController@ViewMiembroOcupacion')->name('reportes.viewmiembroocupacion');
+    Route::get('miembro/get/ocupacion/{ocupacion_id}/{pdf}/consultar', 'ReporteController@miembrosOcupacion')->name('reportes.miembrosocupacion');
+    Route::get('miembro/get/', 'ReporteController@ViewMiembroGet')->name('reportes.viewmiembroget');
+    Route::get('miembro/get/nombre/{nombre}/consultar', 'ReporteController@buscarMiembro')->name('reportes.buscarmiembro');
+
 });
 
 

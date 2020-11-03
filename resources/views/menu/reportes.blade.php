@@ -21,16 +21,28 @@
                         <strong>Detalles: </strong> Gestione los diferentes reportes del sistema.
                     </div>
                     <div class="button-demo">
+                        <a href="{{route('reportes.viewmiembroget')}}" class="btn bg-indigo btn-lg waves-effect">
+                            <div>
+                                <span><i class="material-icons">folder_shared</i></span>
+                                <span>BUSCAR MIEMBRO</span>
+                                <span class="ink animate"></span></div>
+                        </a>
                         <a href="{{route('reportes.ViewMiembroPastoral')}}" class="btn bg-indigo btn-lg waves-effect">
                             <div>
                                 <span><i class="material-icons">folder_shared</i></span>
                                 <span>MIEMBROS POR PASTORAL</span>
                                 <span class="ink animate"></span></div>
                         </a>
-                        <a href="{{route('empleado.index')}}" class="btn bg-indigo btn-lg waves-effect">
+                        <a href="{{route('reportes.viewmiembrocomunidad')}}" class="btn bg-indigo btn-lg waves-effect">
                             <div>
                                 <span><i class="material-icons">folder_shared</i></span>
-                                <span>MIEMBROS POR EDAD</span>
+                                <span>MIEMBROS POR COMUNIDAD</span>
+                                <span class="ink animate"></span></div>
+                        </a>
+                        <a href="{{route('reportes.viewmiembroocupacion')}}" class="btn bg-indigo btn-lg waves-effect">
+                            <div>
+                                <span><i class="material-icons">folder_shared</i></span>
+                                <span>MIEMBROS POR OCUPACIÓN</span>
                                 <span class="ink animate"></span></div>
                         </a>
                     </div>

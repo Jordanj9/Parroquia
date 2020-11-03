@@ -13,30 +13,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e360b73e-6a43-44a5-a264-ef88e6517df0" name="Default Changelist" comment="Correciones getMiembro 20 de oct del 2020 Jordan">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ReporteController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/dompdf.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/reporte.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/menu/reportes.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pastoral/miembros/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/reportes/PDF/miembro_por_pastoral_pdf.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/reportes/PDF/print_1_2_niveles.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/reportes/miembro_por_pastoral.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Parroquia.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Parroquia.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="e360b73e-6a43-44a5-a264-ef88e6517df0" name="Default Changelist" comment="ReporteController.php 31 de oct del 2020 Jordan">
+      <change afterPath="$PROJECT_DIR$/resources/views/reportes/miembro_buscar.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/reportes/miembro_por_cominidad.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/reportes/miembro_por_ocupacion.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Comunidad.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Comunidad.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MenuController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MenuController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MiembroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MiembroController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PlanpastoralController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PlanpastoralController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Miembro.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Miembro.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Miembrocomunidad.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Miembrocomunidad.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pastoral/miembros/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pastoral/miembros/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReporteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReporteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/menu/reportes.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menu/reportes.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/reportes/miembro_por_pastoral.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/reportes/miembro_por_pastoral.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -178,7 +163,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Iglesia/config/app.php" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Infotep" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -186,7 +171,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -202,13 +187,15 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -259,7 +246,8 @@
       <workItem from="1603481987765" duration="614000" />
       <workItem from="1603482992504" duration="5411000" />
       <workItem from="1603978173728" duration="1221000" />
-      <workItem from="1604145383029" duration="33770000" />
+      <workItem from="1604145383029" duration="34658000" />
+      <workItem from="1604332220045" duration="21884000" />
     </task>
     <task id="LOCAL-00001" summary="Primer commit">
       <created>1598369349192</created>
@@ -289,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603230933237</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ReporteController.php 31 de oct del 2020 Jordan">
+      <created>1604200395911</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1604200395911</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,7 +308,8 @@
     <MESSAGE value="Version 2.0 1 de sept del 2020 Jordan" />
     <MESSAGE value="Version 3.0 81 de sept del 2020 Jordan" />
     <MESSAGE value="Correciones getMiembro 20 de oct del 2020 Jordan" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correciones getMiembro 20 de oct del 2020 Jordan" />
+    <MESSAGE value="ReporteController.php 31 de oct del 2020 Jordan" />
+    <option name="LAST_COMMIT_MESSAGE" value="ReporteController.php 31 de oct del 2020 Jordan" />
   </component>
   <component name="WindowStateProjectService">
     <state x="436" y="219" key="#Notifications" timestamp="1598362123349">
@@ -324,26 +320,26 @@
       <screen x="0" y="30" width="1366" height="738" />
     </state>
     <state x="408" y="189" key="#com.intellij.fileTypes.FileTypeChooser/0.30.1366.738@0.30.1366.738" timestamp="1603505745378" />
-    <state x="413" y="154" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1599778023074">
+    <state x="413" y="154" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604344752741">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
-    <state x="413" y="154" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.30.1366.738@0.30.1366.738" timestamp="1599778023074" />
-    <state x="463" y="140" key="FileChooserDialogImpl" timestamp="1604199130124">
+    <state x="413" y="154" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.30.1366.738@0.30.1366.738" timestamp="1604344752741" />
+    <state x="463" y="140" key="FileChooserDialogImpl" timestamp="1604374089248">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
-    <state x="463" y="140" key="FileChooserDialogImpl/0.30.1366.738@0.30.1366.738" timestamp="1604199130124" />
+    <state x="463" y="140" key="FileChooserDialogImpl/0.30.1366.738@0.30.1366.738" timestamp="1604374089248" />
     <state x="433" y="106" key="NewPhpClassDialog" timestamp="1604178854799">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
     <state x="433" y="106" key="NewPhpClassDialog/0.30.1366.738@0.30.1366.738" timestamp="1604178854799" />
-    <state x="184" y="44" key="SettingsEditor" timestamp="1600026056489">
+    <state x="184" y="44" key="SettingsEditor" timestamp="1604332820969">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
-    <state x="184" y="44" key="SettingsEditor/0.30.1366.738@0.30.1366.738" timestamp="1600026056489" />
-    <state x="275" y="128" key="Vcs.Push.Dialog.v2" timestamp="1603231068369">
+    <state x="184" y="44" key="SettingsEditor/0.30.1366.738@0.30.1366.738" timestamp="1604332820969" />
+    <state x="275" y="128" key="Vcs.Push.Dialog.v2" timestamp="1604200412491">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
-    <state x="275" y="128" key="Vcs.Push.Dialog.v2/0.30.1366.738@0.30.1366.738" timestamp="1603231068369" />
+    <state x="275" y="128" key="Vcs.Push.Dialog.v2/0.30.1366.738@0.30.1366.738" timestamp="1604200412491" />
     <state x="555" y="243" key="cloudConfig.SelfSettingsDialog" timestamp="1602763183842">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
@@ -356,10 +352,10 @@
       <screen x="0" y="30" width="1366" height="738" />
     </state>
     <state x="339" y="182" key="run.anything.popup/0.30.1366.738@0.30.1366.738" timestamp="1598992839936" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1604200136920">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1604353911317">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.30.1366.738@0.30.1366.738" timestamp="1604200136920" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.30.1366.738@0.30.1366.738" timestamp="1604353911317" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
