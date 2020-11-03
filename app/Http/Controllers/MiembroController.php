@@ -125,8 +125,9 @@ class MiembroController extends Controller
         if (isset($values['comunidadesp']) && count($values['comunidadesp']) > 0) {
             $array = null;
             foreach ($values['comunidadesp'] as $com) {
+                $obj=null;
                 $item = Comunidad::find($com);
-                $string = "COMUNIDAD: " . $item->numero . " DÍA - HORA: " . $item->dia . " - " . $item->hora;
+                $string = "N°." . $item->numero . " DÍA Y HORA DE REUNIÓN : " . $item->dia . " - " . $item->hora;
                 $obj[$item->id] = $item->subpastoral_id != null ? $string . " SUBPASTORAL: " . $item->subpastoral->nombre : $string . " PASTORAL: " . $item->pastoral->nombre;
                 $array[] = $obj;
             }
@@ -136,10 +137,14 @@ class MiembroController extends Controller
         }
         $result = $miembro->save();
         if ($result) {
-            $miem_comu = new Miembrocomunidad($values);
-            $miem_comu->fecha_censo_salud = (isset($values['fecha_censo_salud']) && $values['fecha_censo_salud'] != '') ? $values['fecha_censo_salud'] : null;
-            $miem_comu->miembro_id = $miembro->id;
-            $result2 = $miem_comu->save();
+            $existe = Miembrocomunidad::where([['miembro_id',$miembro->id],['comunidad_id',$values['comunidad_id']]])->first();
+            $result2=true;
+            if($existe == null){
+                $miem_comu = new Miembrocomunidad($values);
+                $miem_comu->fecha_censo_salud = (isset($values['fecha_censo_salud']) && $values['fecha_censo_salud'] != '') ? $values['fecha_censo_salud'] : null;
+                $miem_comu->miembro_id = $miembro->id;
+                $result2 = $miem_comu->save();
+            }
             if ($result2) {
                 if (isset($request->dispo) && count($request->dispo) > 0) {
                     foreach ($request->dispo as $item) {
@@ -201,10 +206,21 @@ class MiembroController extends Controller
      */
     public function show(Miembro $miembro)
     {
+        //dd($miembro->comunidades);
+        $comunidades = $miembro->comunidades != null ? json_decode($miembro->comunidades):null;
+        //dd($comunidades);
+        $array = null;
+        if($comunidades != null){
+            foreach ($comunidades as $com){
+                foreach ($com as $item){
+                    $array[]=$item;
+                }
+            }
+        }
         return view('pastoral.miembros.show')
             ->with('location','pastoral')
             ->with('miembro',$miembro)
-            ->with('comunidades',$miembro->comunidades != null ? json_decode($miembro->comunidades):null);
+            ->with('comunidades',$array);
     }
 
     /**

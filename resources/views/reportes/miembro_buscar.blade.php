@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         <div class="col-md-3 col-lg-3 col-xs-12" style="margin-top: 20px">
-                            <button type="button" onclick="getMiembros()" class="btn bg-purple waves-effect">
+                            <button type="button" onclick="getMiembros()" class="btn bg-cyan waves-effect">
                                 <i class="material-icons">search</i>
                                 <span>BUSCAR</span>
                             </button>
@@ -138,8 +138,10 @@
                             html = html + "<td>" + item.tel + "</td>";
                             html = html + "<td>" + item.sexo + "</td>";
                             html = html + "<td>" + item.edad + "</td>";
-                            var id = item.id;
-                            html = html + "<td><a class='btn bg-green waves-effect btn-xs' data-toggle='tooltip' data-placement='top' title='Ver Miembro' href='"+ url+"pastoral/miembro/"+item.id  +"'><i class='material-icons'>remove_red_eye</i></a></td>";
+                            {{--"{{url("pastoral/miembro/")}}+item.id+"
+                            {{url("pastoral/miembro/")}} + "/" +item.id--}}
+                            {{--url+"pastoral/miembro/"+item.id--}}
+                            html = html + "<td><a class='btn bg-green waves-effect btn-xs' data-toggle='tooltip' data-placement='top' title='Ver Miembro' href='"+ url+"pastoral/miembro/"+item.id+"'><i class='material-icons'>remove_red_eye</i></a></td>";
                             +"</tr>";
                         });
                         $("#tb2").html(html);

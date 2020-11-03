@@ -27,7 +27,7 @@
                             <table id="tabla" class="table table-hover">
                                 <tbody>
                                 <tr class="read">
-                                    <td class="contact btn-success" colspan="2" style="border-radius: 10px;">
+                                    <td class="contact bg-cyan" colspan="2" style="border-radius: 10px;">
                                         <center><b>Datos Personales</b></center>
                                     </td>
                                 </tr>
@@ -77,7 +77,7 @@
                                 </tr>
                                 <tr class="read">
                                     <td class="contact"><b>Ocupación</b></td>
-                                    <td class="subject">{{$miembro->ocupacion->nombre}}</td>
+                                    <td class="subject">{{$miembro->ocupacion != null?$miembro->ocupacion->nombre:''}}</td>
                                 </tr>
                                 <tr class="read">
                                     <td class="contact"><b>Estado Civl</b></td>
@@ -92,7 +92,7 @@
                                     <td class="subject">{{$miembro->updated_at}}</td>
                                 </tr>
                                 <tr class="read">
-                                    <td class="contact btn-success" colspan="2" style="border-radius: 10px;">
+                                    <td class="contact bg-cyan" colspan="2" style="border-radius: 10px;">
                                         <center><b>Información Religiosa</b></center>
                                     </td>
                                 </tr>
@@ -105,7 +105,7 @@
                                     @foreach($comunidades as $item)
                                         <tr class="read">
                                             <td class="contact"><b>Comunidad</b></td>
-                                            <td class="subject">$item</td>
+                                            <td class="subject">{{$item}}</td>
                                         </tr>
                                     @endforeach
                                 @endif
@@ -132,7 +132,7 @@
                                         <tr class="read">
                                             <td class="contact"><b>Comunidad</b></td>
                                             <td class="subject">
-                                                N°.{{$item->comunidad->numero}}</td>
+                                                N°.{{$item->comunidad->numero." - Pastoral: ".$item->comunidad->pastoral->nombre}}</td>
                                         </tr>
                                         <tr class="read">
                                             <td class="contact"><b>Día y Hora de Reunión</b></td>
@@ -161,18 +161,16 @@
                                         </tr>
                                     @endforeach
                                 @endif
-
-
                                 @if(count($miembro->miembrosacramentos)>0)
                                     <tr class="read">
-                                        <td class="contact btn-success" colspan="2" style="border-radius: 10px;">
+                                        <td class="contact bg-cyan" colspan="2" style="border-radius: 10px;">
                                             <center><b>Sacramentos</b></center>
                                         </td>
                                     </tr>
                                     @foreach($miembro->miembrosacramentos as $item)
                                         <tr class="read">
                                             <td class="contact"><b>{{$item->sacramento->nombre}}</b></td>
-                                            <td class="subject">Lugar: {{$item->sacramento->lugar}}</td>
+                                            <td class="subject">Lugar: {{$item->lugar}}</td>
                                         </tr>
                                     @endforeach
                                 @endif

@@ -13,16 +13,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e360b73e-6a43-44a5-a264-ef88e6517df0" name="Default Changelist" comment="ReporteController.php 31 de oct del 2020 Jordan">
-      <change afterPath="$PROJECT_DIR$/resources/views/reportes/miembro_buscar.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/reportes/miembro_por_cominidad.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/reportes/miembro_por_ocupacion.blade.php" afterDir="false" />
+    <list default="true" id="e360b73e-6a43-44a5-a264-ef88e6517df0" name="Default Changelist" comment="ReporteController.php 02 de nov del 2020 Jordan">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Parroquia.zip" beforeDir="false" afterPath="$PROJECT_DIR$/Parroquia.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MiembroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MiembroController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReporteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReporteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/menu/reportes.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/menu/reportes.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/reportes/miembro_por_pastoral.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/reportes/miembro_por_pastoral.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pastoral/miembros/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pastoral/miembros/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pastoral/miembros/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pastoral/miembros/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/reportes/miembro_buscar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/reportes/miembro_buscar.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,19 +184,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
@@ -247,7 +231,8 @@
       <workItem from="1603482992504" duration="5411000" />
       <workItem from="1603978173728" duration="1221000" />
       <workItem from="1604145383029" duration="34658000" />
-      <workItem from="1604332220045" duration="21884000" />
+      <workItem from="1604332220045" duration="21988000" />
+      <workItem from="1604412924569" duration="8180000" />
     </task>
     <task id="LOCAL-00001" summary="Primer commit">
       <created>1598369349192</created>
@@ -284,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604200395911</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="ReporteController.php 02 de nov del 2020 Jordan">
+      <created>1604376034013</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1604376034013</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,7 +301,8 @@
     <MESSAGE value="Version 3.0 81 de sept del 2020 Jordan" />
     <MESSAGE value="Correciones getMiembro 20 de oct del 2020 Jordan" />
     <MESSAGE value="ReporteController.php 31 de oct del 2020 Jordan" />
-    <option name="LAST_COMMIT_MESSAGE" value="ReporteController.php 31 de oct del 2020 Jordan" />
+    <MESSAGE value="ReporteController.php 02 de nov del 2020 Jordan" />
+    <option name="LAST_COMMIT_MESSAGE" value="ReporteController.php 02 de nov del 2020 Jordan" />
   </component>
   <component name="WindowStateProjectService">
     <state x="436" y="219" key="#Notifications" timestamp="1598362123349">
@@ -336,10 +329,10 @@
       <screen x="0" y="30" width="1366" height="738" />
     </state>
     <state x="184" y="44" key="SettingsEditor/0.30.1366.738@0.30.1366.738" timestamp="1604332820969" />
-    <state x="275" y="128" key="Vcs.Push.Dialog.v2" timestamp="1604200412491">
+    <state x="275" y="128" key="Vcs.Push.Dialog.v2" timestamp="1604376040971">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
-    <state x="275" y="128" key="Vcs.Push.Dialog.v2/0.30.1366.738@0.30.1366.738" timestamp="1604200412491" />
+    <state x="275" y="128" key="Vcs.Push.Dialog.v2/0.30.1366.738@0.30.1366.738" timestamp="1604376040971" />
     <state x="555" y="243" key="cloudConfig.SelfSettingsDialog" timestamp="1602763183842">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
@@ -352,10 +345,10 @@
       <screen x="0" y="30" width="1366" height="738" />
     </state>
     <state x="339" y="182" key="run.anything.popup/0.30.1366.738@0.30.1366.738" timestamp="1598992839936" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1604353911317">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1604417611358">
       <screen x="0" y="30" width="1366" height="738" />
     </state>
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.30.1366.738@0.30.1366.738" timestamp="1604353911317" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.30.1366.738@0.30.1366.738" timestamp="1604417611358" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

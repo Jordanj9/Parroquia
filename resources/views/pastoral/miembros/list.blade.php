@@ -22,7 +22,7 @@
                                 <i class="material-icons">more_vert</i>
                             </a>
                             <ul class="dropdown-menu pull-right">
-                                <li><a href="{{ route('miembro.create') }}">Agregar Nuevo Miembro</a></li>
+                                <li><a href="{{ route('miembro.create') }}">Agregar o Editar Miembro</a></li>
                                 <li><a data-toggle="modal" data-target="#mdModal">Ayuda</a></li>
                             </ul>
                         </li>
@@ -54,14 +54,14 @@
                                     <td>{{$miembro->celular}}</td>
                                     <td>{{$miembro->correo}}</td>
                                     <td style="text-align: center;">
-                                        <a href="{{ route('miembro.edit',$miembro->id)}}"
-                                           class="btn bg-indigo waves-effect btn-xs" data-toggle="tooltip"
-                                           data-placement="top" title="Editar Miembro"><i class="material-icons">mode_edit</i></a>
+{{--                                        <a href="{{ route('miembro.edit',$miembro->id)}}"--}}
+{{--                                           class="btn bg-indigo waves-effect btn-xs" data-toggle="tooltip"--}}
+{{--                                           data-placement="top" title="Editar Miembro"><i class="material-icons">mode_edit</i></a>--}}
                                         <a href="{{ route('miembro.show',$miembro)}}"
                                            class="btn bg-green waves-effect btn-xs" data-toggle="tooltip"
                                            data-placement="top" title="Ver Miembro"><i class="material-icons">remove_red_eye</i></a>
-                                        <a href="#" onclick="eliminar(event,{{$miembro->id}})" class="btn bg-red waves-effect btn-xs" data-toggle="tooltip"
-                                           data-placement="top" title="Eliminar Miembro"><i class="material-icons">delete</i></a>
+{{--                                        <a href="#" onclick="eliminar(event,{{$miembro->id}})" class="btn bg-red waves-effect btn-xs" data-toggle="tooltip"--}}
+{{--                                           data-placement="top" title="Eliminar Miembro"><i class="material-icons">delete</i></a>--}}
                                     </td>
                                 </tr>
                             @endforeach
